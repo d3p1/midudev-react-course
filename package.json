@@ -1,0 +1,55 @@
+{
+  "name": "@d3p1/midudev-react-course",
+  "version": "0.0.0",
+  "description": "A React course from midudev",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "format:code": "prettier --ignore-path .gitignore --check src",
+    "format:code:fix": "npm run format:code -- --write",
+    "refactor": "npm run format:code:fix && npm run lint:code:fix",
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "lint": "eslint .",
+    "preview": "vite preview"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/d3p1/midudev-react-course.git"
+  },
+  "author": "C. M. de Picciotto <d3p1@d3p1.dev> (https://d3p1.dev/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/d3p1/midudev-react-course/issues"
+  },
+  "homepage": "https://github.com/d3p1/midudev-react-course#readme",
+  "keywords": [
+    "react"
+  ],
+  "dependencies": {
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^19.8.1",
+    "@d3p1/commitlint-config": "^1.0.1",
+    "@eslint/js": "^9.29.0",
+    "@tailwindcss/vite": "^4.1.11",
+    "@types/react": "^19.1.8",
+    "@types/react-dom": "^19.1.6",
+    "@vitejs/plugin-react-swc": "^3.10.2",
+    "eslint": "^9.29.0",
+    "eslint-config-prettier": "^10.1.5",
+    "eslint-plugin-react-dom": "^1.52.2",
+    "eslint-plugin-react-hooks": "^5.2.0",
+    "eslint-plugin-react-refresh": "^0.4.20",
+    "eslint-plugin-react-x": "^1.52.2",
+    "globals": "^16.2.0",
+    "husky": "8.0.3",
+    "prettier": "3.0.3",
+    "tailwindcss": "^4.1.11",
+    "typescript": "~5.8.3",
+    "typescript-eslint": "^8.34.1",
+    "vite": "^7.0.0"
+  }
+}
