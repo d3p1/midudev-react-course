@@ -4,5 +4,5 @@
  */
 {
   "name": "Node.js",
-  "image": "d3p1/devcontainer-node:18"
+  "image": "d3p1/devcontainer-node:22"
 }
