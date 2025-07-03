@@ -5,6 +5,14 @@
 @import "tailwindcss";
 
 @theme {
-    --color-primary: hsl(0, 0%, 0%);
+    --color-primary-900: hsl(0, 0%, 0%);
+    --color-primary-800: hsl(0, 0%, 10%);
+    --color-primary-700: hsl(0, 0%, 20%);
+    --color-primary-600: hsl(0, 0%, 30%);
+    --color-primary-500: hsl(0, 0%, 40%);
+    --color-primary-400: hsl(0, 0%, 50%);
+    --color-primary-300: hsl(0, 0%, 60%);
+    --color-primary-200: hsl(0, 0%, 70%);
     --color-secondary: hsl(0, 0%, 100%);
+    --color-accent: hsl(0, 100%, 60%);
 }
