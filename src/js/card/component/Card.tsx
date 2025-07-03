@@ -7,11 +7,13 @@ import {useState} from 'react'
 export default function Card({
   fullName,
   username,
+  initialIsFollowing,
 }: {
   fullName: string
   username: string
+  initialIsFollowing?: boolean
 }) {
-  const [isFollowing, setIsFollowing] = useState(false)
+  const [isFollowing, setIsFollowing] = useState(initialIsFollowing)
 
   const handleOnClick = () => {
     setIsFollowing(!isFollowing)
@@ -30,7 +32,7 @@ export default function Card({
         <h3>{fullName}</h3>
         <span className="text-primary-300">{username}</span>
       </section>
-      <aside className="flex flex-col justify-center w-1/3">
+      <aside className="flex flex-col justify-center w-1/4">
         <button
           className="bg-secondary text-primary-900 p-5 rounded-full font-black cursor-pointer"
           onClick={handleOnClick}

@@ -9,34 +9,42 @@ const dummyUsers = [
   {
     fullName: 'Miguel Ángel Durán',
     username: 'midudev',
+    isFollowing: true,
   },
   {
     fullName: 'Cristian Marcelo de Picciotto',
     username: 'd3p1',
+    isFollowing: false,
   },
   {
     fullName: 'MR. Doob',
     username: 'mrdoob',
+    isFollowing: true,
   },
   {
     fullName: 'Wawa Sensei',
     username: 'wawasensei',
+    isFollowing: true,
   },
   {
     fullName: 'Bruno Simon',
     username: 'bruno_simon',
+    isFollowing: false,
   },
   {
     fullName: 'Simon',
     username: 'iced_coffee_dev',
+    isFollowing: false,
   },
   {
     fullName: 'Jhey',
     username: 'jh3yy',
+    isFollowing: false,
   },
   {
     fullName: 'Sarlloc',
     username: 'sarlloc',
+    isFollowing: false,
   },
 ]
 
@@ -50,8 +58,13 @@ export default function App() {
 
   return (
     <section className="flex flex-col gap-4">
-      {users.map(({fullName, username}) => (
-        <Card fullName={fullName} username={username} key={username} />
+      {users.map(({fullName, username, isFollowing}) => (
+        <Card
+          fullName={fullName}
+          username={username}
+          initialIsFollowing={isFollowing}
+          key={username}
+        />
       ))}
 
       <button
