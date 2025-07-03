@@ -15,7 +15,7 @@ export default function Card({
 }) {
   const [isFollowing, setIsFollowing] = useState(initialIsFollowing)
 
-  const handleOnClick = () => {
+  const handleClick = () => {
     setIsFollowing(!isFollowing)
   }
 
@@ -35,7 +35,7 @@ export default function Card({
       <aside className="flex flex-col justify-center w-1/4">
         <button
           className="bg-secondary text-primary-900 p-5 rounded-full font-black cursor-pointer"
-          onClick={handleOnClick}
+          onClick={handleClick}
         >
           {isFollowing ? 'Unfollow' : 'Follow'}
         </button>

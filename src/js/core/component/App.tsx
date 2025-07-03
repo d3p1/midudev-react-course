@@ -51,7 +51,7 @@ const dummyUsers = [
 export default function App() {
   const [users, setUsers] = useState(dummyUsers.slice(0, 2))
 
-  const handleOnClick = () => {
+  const handleClick = () => {
     const index = Math.floor(Math.random() * (dummyUsers.length - 2))
     setUsers(dummyUsers.slice(index, index + 2))
   }
@@ -69,7 +69,7 @@ export default function App() {
 
       <button
         className="rounded-full bg-secondary text-primary-900 font-black p-5 cursor-pointer"
-        onClick={handleOnClick}
+        onClick={handleClick}
       >
         Refresh
       </button>
