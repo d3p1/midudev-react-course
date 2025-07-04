@@ -15,7 +15,7 @@ export default function App() {
   }
 
   return (
-    <section className="flex flex-col gap-4">
+    <section className="flex flex-col gap-4 max-w-1/3">
       {users.map(({fullName, username, isFollowing}) => (
         <Card
           fullName={fullName}
