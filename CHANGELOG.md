@@ -1,3 +1,16 @@
+# [1.3.0](https://github.com/d3p1/midudev-react-course/compare/v1.2.0...v1.3.0) (2025-07-04)
+
+
+### Bug Fixes
+
+* adjust styles [[#1](https://github.com/d3p1/midudev-react-course/issues/1)] ([b710da6](https://github.com/d3p1/midudev-react-course/commit/b710da673ae641100aab79808be4981cb0c98195))
+
+
+### Features
+
+* add carousel for lessons [[#1](https://github.com/d3p1/midudev-react-course/issues/1)] ([0bcdde3](https://github.com/d3p1/midudev-react-course/commit/0bcdde323a0ccf240174b1bbc0eaae26a56b09f8))
+* init lesson number 02 [[#1](https://github.com/d3p1/midudev-react-course/issues/1)] ([0195bd5](https://github.com/d3p1/midudev-react-course/commit/0195bd5eeb547519b31950b593f2531ac67d2b32))
+
 # [1.2.0](https://github.com/d3p1/midudev-react-course/compare/v1.1.0...v1.2.0) (2025-07-03)
 
 
