@@ -5,13 +5,11 @@
 import GameManager from '../../../utils/game-manager.ts'
 
 export default function Square({
-  index,
   turn,
   updateGame,
 }: {
-  index: number
   turn: string
-  updateGame: (index: number) => void
+  updateGame: () => void
 }) {
   return (
     <div
@@ -20,7 +18,7 @@ export default function Square({
           ? 'text-accent-primary'
           : 'text-accent-secondary'
       }`}
-      onClick={() => updateGame(index)}
+      onClick={updateGame}
     >
       {turn}
     </div>

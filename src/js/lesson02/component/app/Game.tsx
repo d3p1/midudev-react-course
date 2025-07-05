@@ -30,9 +30,8 @@ export default function Game({
         {board.map((turn, index) => (
           <Square
             key={index}
-            index={index}
             turn={turn}
-            updateGame={updateGame}
+            updateGame={() => updateGame(index)}
           />
         ))}
       </section>
