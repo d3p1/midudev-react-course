@@ -2,6 +2,7 @@
  * @description App
  * @author      C. M. de Picciotto <d3p1@d3p1.dev> (https://d3p1.dev/)
  */
+import confetti from 'canvas-confetti'
 import {useState} from 'react'
 import GameManager from '../utils/game-manager.ts'
 import Game from './app/Game.tsx'
@@ -31,6 +32,10 @@ export default function App() {
     setBoard(newBoard)
     setWinner(hasWinner)
     setTurn(newTurn)
+
+    if (hasWinner) {
+      confetti()
+    }
   }
 
   return (
