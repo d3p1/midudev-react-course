@@ -1,3 +1,16 @@
+# [1.7.0](https://github.com/d3p1/midudev-react-course/compare/v1.6.0...v1.7.0) (2025-07-05)
+
+
+### Bug Fixes
+
+* adjust layout shifting when click follow button in lesson number 01 [[#1](https://github.com/d3p1/midudev-react-course/issues/1)] ([f608960](https://github.com/d3p1/midudev-react-course/commit/f6089606c4c571651c963bef53d8ae6b4ec20eca))
+* adjust layout shifting when click square in lesson number 02 [[#1](https://github.com/d3p1/midudev-react-course/issues/1)] ([ab4d3c2](https://github.com/d3p1/midudev-react-course/commit/ab4d3c252a5bee21f4fea0ab910bf7585a839cd8))
+
+
+### Features
+
+* add lesson number 04 [[#1](https://github.com/d3p1/midudev-react-course/issues/1)] ([bd8cc4e](https://github.com/d3p1/midudev-react-course/commit/bd8cc4e85b91c31d3fcde51e2b1847e5e14ea6eb))
+
 # [1.6.0](https://github.com/d3p1/midudev-react-course/compare/v1.5.0...v1.6.0) (2025-07-05)
 
 
