@@ -13,7 +13,7 @@ export default function Square({
 }) {
   return (
     <div
-      className={`border-primary-200 border-2 p-10 font-black cursor-pointer select-none ${
+      className={`border-primary-200 border-2 w-22 h-22 flex justify-center items-center font-black cursor-pointer select-none ${
         turn === GameManager.TURNS.X
           ? 'text-accent-primary'
           : 'text-accent-secondary'
