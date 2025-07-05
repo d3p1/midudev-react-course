@@ -34,7 +34,7 @@ export default function Card({
       </section>
       <aside className="flex flex-col justify-center w-1/4">
         <button
-          className="bg-secondary text-primary-900 p-5 rounded-full font-black cursor-pointer"
+          className="bg-secondary text-primary-900 p-5 w-24 text-center rounded-full font-black cursor-pointer"
           onClick={handleClick}
         >
           {isFollowing ? 'Unfollow' : 'Follow'}
