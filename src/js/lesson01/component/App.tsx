@@ -3,7 +3,7 @@
  * @author      C. M. de Picciotto <d3p1@d3p1.dev> (https://d3p1.dev/)
  */
 import {useState} from 'react'
-import Card from './Card.tsx'
+import Card from './app/Card.tsx'
 import {dummyUsers} from '../utils/dummy-users.ts'
 
 export default function App() {
