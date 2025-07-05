@@ -1,3 +1,11 @@
+# [1.5.0](https://github.com/d3p1/midudev-react-course/compare/v1.4.0...v1.5.0) (2025-07-05)
+
+
+### Features
+
+* add confetti to lesson number 02 [[#1](https://github.com/d3p1/midudev-react-course/issues/1)] ([23aaeeb](https://github.com/d3p1/midudev-react-course/commit/23aaeeb8bd4f8eccce90f0d8b627cf6714a24168))
+* add turn to lesson number 02 [[#1](https://github.com/d3p1/midudev-react-course/issues/1)] ([c08d516](https://github.com/d3p1/midudev-react-course/commit/c08d5169290e1a3e2bf3428ef0bff1f047d9e861))
+
 # [1.4.0](https://github.com/d3p1/midudev-react-course/compare/v1.3.0...v1.4.0) (2025-07-05)
 
 
