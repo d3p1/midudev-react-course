@@ -14,5 +14,6 @@
     --color-primary-300: hsl(0, 0%, 60%);
     --color-primary-200: hsl(0, 0%, 70%);
     --color-secondary: hsl(0, 0%, 100%);
-    --color-accent: hsl(0, 100%, 60%);
+    --color-accent-primary: hsl(180, 100%, 60%);
+    --color-accent-secondary: hsl(0, 100%, 60%);
 }
