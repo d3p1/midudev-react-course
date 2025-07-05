@@ -36,6 +36,12 @@ export default function Game({
         ))}
       </section>
 
+      {winner === null && (
+        <section className="text-center text-2xl">
+          <span className="font-black uppercase">Turn: {turn}</span>
+        </section>
+      )}
+
       {winner !== null && (
         <section className="text-center text-2xl">
           <span className="font-black uppercase">
