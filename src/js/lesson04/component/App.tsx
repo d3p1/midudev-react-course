@@ -14,7 +14,7 @@ export default function App() {
       {fact && <p className="italic p-4">"{fact}"</p>}
       {fact && imgUrl && (
         <img
-          className="max-w-md max-h-md w-auto h-auto"
+          className="max-w-xs max-h-xs w-auto h-auto"
           src={imgUrl}
           alt={`An image of a cat from the first word of ${fact}`}
         />
