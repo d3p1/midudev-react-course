@@ -8,6 +8,7 @@ export interface Lesson {
   number: string
   title: string
   link: string
+  additionalNote?: () => JSX.Element
   component: () => JSX.Element
 }
 

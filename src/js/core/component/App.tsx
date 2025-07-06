@@ -19,7 +19,7 @@ export default function App() {
 
   return (
     <main className="w-full h-full grid place-items-center">
-      <h1 className="absolute top-10 w-full text-center uppercase font-black">
+      <h1 className="absolute top-10 uppercase font-black">
         <a
           href={lessons[index].link}
           target="_blank"
@@ -30,16 +30,19 @@ export default function App() {
         </a>
       </h1>
 
-      <div
-        className="absolute bottom-10 w-full flex justify-between p-10"
-        style={{zIndex: -1}}
-      >
+      {lessons[index].additionalNote && (
+        <div className="absolute top-20">
+          {createElement(lessons[index].additionalNote)}
+        </div>
+      )}
+
+      <div className="absolute bottom-10 w-full flex justify-between p-10">
         <button
-          className="h-0 w-0 border-y-16 border-y-transparent border-r-16 border-r-primary-200 cursor-pointer"
+          className="relative z-10 h-0 w-0 border-y-16 border-y-transparent border-r-16 border-r-primary-200 cursor-pointer"
           onClick={() => handleClick(-1)}
         ></button>
         <button
-          className="h-0 w-0 border-y-16 border-y-transparent border-l-16 border-l-primary-200 cursor-pointer"
+          className="relative z-10 h-0 w-0 border-y-16 border-y-transparent border-l-16 border-l-primary-200 cursor-pointer"
           onClick={() => handleClick(+1)}
         ></button>
       </div>
