@@ -1,3 +1,17 @@
+# [1.8.0](https://github.com/d3p1/midudev-react-course/compare/v1.7.0...v1.8.0) (2025-07-06)
+
+
+### Bug Fixes
+
+* adjust carousel buttons z-index position [[#1](https://github.com/d3p1/midudev-react-course/issues/1)] ([6f0c74f](https://github.com/d3p1/midudev-react-course/commit/6f0c74faf5274b42896d18b8eba97164bfd08951))
+* improve styles of cat images in lesson number 04 [[#1](https://github.com/d3p1/midudev-react-course/issues/1)] ([750648c](https://github.com/d3p1/midudev-react-course/commit/750648c02844891ba05acc2b52d1e14bddda6b70))
+
+
+### Features
+
+* add additional note to lesson number 04 [[#1](https://github.com/d3p1/midudev-react-course/issues/1)] ([f61d607](https://github.com/d3p1/midudev-react-course/commit/f61d607a42d020bdfddb9cb1ed5c980994f7053a))
+* add keydown handler to move between lessons [[#1](https://github.com/d3p1/midudev-react-course/issues/1)] ([421a163](https://github.com/d3p1/midudev-react-course/commit/421a1639e673b11284d6bef8f7febbe845058478))
+
 # [1.7.0](https://github.com/d3p1/midudev-react-course/compare/v1.6.0...v1.7.0) (2025-07-05)
 
 
