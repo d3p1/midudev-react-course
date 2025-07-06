@@ -30,7 +30,10 @@ export default function App() {
         </a>
       </h1>
 
-      <div className="absolute bottom-10 w-full flex justify-between p-10">
+      <div
+        className="absolute bottom-10 w-full flex justify-between p-10"
+        style={{zIndex: -1}}
+      >
         <button
           className="h-0 w-0 border-y-16 border-y-transparent border-r-16 border-r-primary-200 cursor-pointer"
           onClick={() => handleClick(-1)}
