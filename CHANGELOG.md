@@ -1,3 +1,18 @@
+# [1.9.0](https://github.com/d3p1/midudev-react-course/compare/v1.8.0...v1.9.0) (2025-07-08)
+
+
+### Bug Fixes
+
+* adjust core styles [[#1](https://github.com/d3p1/midudev-react-course/issues/1)] ([06aa320](https://github.com/d3p1/midudev-react-course/commit/06aa320ef8ad956400088fdd151552729160def6))
+* adjust core styles [[#1](https://github.com/d3p1/midudev-react-course/issues/1)] ([3eec083](https://github.com/d3p1/midudev-react-course/commit/3eec08344aab2df3d3d596a5adf286212fdaa1b6))
+
+
+### Features
+
+* add core logic to lesson number 05 [[#1](https://github.com/d3p1/midudev-react-course/issues/1)] ([27acfea](https://github.com/d3p1/midudev-react-course/commit/27acfea01c7a16322a8ad911f11151a22d39b007))
+* add movie grid to lesson number 05 [[#1](https://github.com/d3p1/midudev-react-course/issues/1)] ([79f665e](https://github.com/d3p1/midudev-react-course/commit/79f665eb9ab59dc3114cddb82d0e6b914a447e1e))
+* init lesson number 05 [[#1](https://github.com/d3p1/midudev-react-course/issues/1)] ([efb4200](https://github.com/d3p1/midudev-react-course/commit/efb4200e2c1d6fd0dc1eec59e7eec5956714c444))
+
 # [1.8.0](https://github.com/d3p1/midudev-react-course/compare/v1.7.0...v1.8.0) (2025-07-06)
 
 
