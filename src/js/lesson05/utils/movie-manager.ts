@@ -12,12 +12,12 @@ const API_ENDPOINT = `${API_BASE_URL}?apikey=${API_KEY}&${API_SEARCH_RESOURCE}`
 
 export default class MovieManager {
   /**
-   * Get movies
+   * Search movies
    *
    * @param   {string} search
    * @returns {Promise<Movie[]>}
    */
-  static async getMovies(search: string): Promise<Movie[]> {
+  static async searchMovies(search: string): Promise<Movie[]> {
     const endpoint = API_ENDPOINT.replace(':search', search)
 
     const res = await fetch(endpoint)

@@ -7,18 +7,18 @@ import type {Movie} from '../types'
 import MovieManager from '../utils/movie-manager.ts'
 
 export default function useMovies(): {
-  movies: Movie[] | undefined
-  refreshMovies: (search: string) => void
+  movies: Movie[]
+  searchMovies: (search: string) => void
 } {
-  const [movies, setMovies] = useState<Movie[]>()
+  const [movies, setMovies] = useState<Movie[]>([])
 
-  const refreshMovies = (search: string) => {
-    MovieManager.getMovies(search).then((movies) => {
+  const searchMovies = (search: string) => {
+    MovieManager.searchMovies(search).then((movies) => {
       if (movies.length) {
         setMovies(movies)
       }
     })
   }
 
-  return {movies, refreshMovies}
+  return {movies, searchMovies}
 }
