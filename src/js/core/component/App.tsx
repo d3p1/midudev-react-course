@@ -27,7 +27,7 @@ export default function App() {
         )}
       </header>
 
-      <main className="w-full max-h-10/11 flex justify-center items-center overflow-y-auto">
+      <main className="w-full h-full flex flex-col justify-center items-center overflow-y-auto">
         {createElement(lesson.component)}
       </main>
 
