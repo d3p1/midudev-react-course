@@ -3,7 +3,7 @@
  * @author      C. M. de Picciotto <d3p1@d3p1.dev> (https://d3p1.dev/)
  */
 import {useState, useEffect} from 'react'
-import type {Lesson} from '../../types'
+import type {Lesson} from '../types'
 import {lessons} from '../utils/lessons.ts'
 
 let index = 0
