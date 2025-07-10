@@ -2,21 +2,21 @@
  * @description Hook to manage lessons
  * @author      C. M. de Picciotto <d3p1@d3p1.dev> (https://d3p1.dev/)
  */
-import {useState, useEffect} from 'react'
+import {useState, useEffect, useRef} from 'react'
 import type {Lesson} from '../types'
 import {lessons} from '../utils/lessons.ts'
 
-let index = 0
 export default function useLesson() {
-  const [lesson, setLesson] = useState<Lesson>(lessons[index])
+  const indexRef = useRef(0)
+  const [lesson, setLesson] = useState<Lesson>(lessons[indexRef.current])
 
   const refreshLesson = (step: number) => {
-    index = (index + step) % lessons.length
-    if (index < 0) {
-      index = lessons.length - 1
+    indexRef.current = (indexRef.current + step) % lessons.length
+    if (indexRef.current < 0) {
+      indexRef.current = lessons.length - 1
     }
 
-    setLesson(lessons[index])
+    setLesson(lessons[indexRef.current])
   }
 
   useEffect(() => {
