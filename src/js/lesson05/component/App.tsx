@@ -2,25 +2,20 @@
  * @description App
  * @author      C. M. de Picciotto <d3p1@d3p1.dev> (https://d3p1.dev/)
  */
+import SearchForm from './app/SearchFrom.tsx'
 import MovieGrid from './app/MovieGrid.tsx'
+import useMovies from '../hook/useMovies.ts'
 
 export default function App() {
+  const {movies, searchMovies, toggleSortMovies} = useMovies()
+
   return (
     <div className="grid grid-rows-[1fr_5fr] place-items-center h-full gap-20">
-      <form className="flex flex-row justify-center gap-4">
-        <input
-          type="text"
-          placeholder="The Avengers, Matrix..."
-          className="border-secondary p-5"
-        />
-        <button
-          type="submit"
-          className="rounded-full p-5 bg-secondary text-primary-900 font-black"
-        >
-          Search
-        </button>
-      </form>
-      <MovieGrid />
+      <SearchForm
+        searchMovies={searchMovies}
+        toggleSortMovies={toggleSortMovies}
+      />
+      <MovieGrid movies={movies} />
     </div>
   )
 }
