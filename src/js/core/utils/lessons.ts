@@ -7,6 +7,7 @@ import Lesson02 from '../../lesson02/component/App.tsx'
 import Lesson03 from '../../lesson03/component/App.tsx'
 import Lesson04 from '../../lesson04/component/App.tsx'
 import Lesson05 from '../../lesson05/component/App.tsx'
+import Lesson06 from '../../lesson06/component/App.tsx'
 import AdditionalNote from '../../lesson04/component/app/AdditionalNote.tsx'
 import type {Lessons} from '../types'
 
@@ -41,5 +42,11 @@ export const lessons: Lessons = [
     title: 'Movie Search',
     link: 'https://cursoreact.dev/05-use-callback-use-memo-use-ref',
     component: Lesson05,
+  },
+  {
+    number: '06',
+    title: 'Shopping Cart',
+    link: 'https://cursoreact.dev/06-use-reducer-use-context',
+    component: Lesson06,
   },
 ]
