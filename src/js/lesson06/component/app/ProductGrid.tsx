@@ -2,26 +2,19 @@
  * @description Product grid
  * @author      C. M. de Picciotto <d3p1@d3p1.dev> (https://d3p1.dev/)
  */
-import {useState} from 'react'
-import {type Product, type Filter as FilterType} from '../../types'
+import useFilter from '../../hook/useFilter.ts'
+import {type Product} from '../../types'
 import Filter from './product-grid/Filter.tsx'
 import AddToCartIcon from './icon/AddToCartIcon.tsx'
 
 export default function ProductGrid({products}: {products: Product[]}) {
-  const [filter, setFilter] = useState<FilterType>({
-    minPrice: 1000,
-    category: 'all',
-  })
+  const {filterProducts} = useFilter()
 
-  const filteredProducts = products.filter(
-    (product) =>
-      product.price >= filter.minPrice &&
-      (filter.category === 'all' || product.category === filter.category),
-  )
+  const filteredProducts = filterProducts(products)
 
   return (
     <div className="w-full h-full px-4">
-      <Filter changeFilter={setFilter} />
+      <Filter />
       <ul className="grid grid-cols-[repeat(auto-fit,minmax(150px,1fr))] gap-4 place-items-center mt-8">
         {filteredProducts.map((product) => (
           <li

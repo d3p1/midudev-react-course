@@ -2,29 +2,28 @@
  * @description Filter component for product grid
  * @author      C. M. de Picciotto <d3p1@d3p1.dev> (https://d3p1.dev/)
  */
-import {
-  useState,
-  useId,
-  type ChangeEvent,
-  type SetStateAction,
-  type Dispatch,
-} from 'react'
-import type {Filter as FilterType} from '../../../types'
+import {useId, type ChangeEvent} from 'react'
+import useFilter from '../../../hook/useFilter.ts'
 
-export default function Filter({
-  changeFilter,
-}: {
-  changeFilter: Dispatch<SetStateAction<FilterType>>
-}) {
-  const [minPrice, setMinPrice] = useState(0)
+const categories = [
+  {key: 'all', label: 'All'},
+  {key: 'smartphones', label: 'Smartphones'},
+  {key: 'laptops', label: 'Laptops'},
+  {key: 'home-decoration', label: 'Home decoration'},
+  {key: 'groceries', label: 'Groceries'},
+  {key: 'skincare', label: 'Skincare'},
+  {key: 'fragrances', label: 'Fragrances'},
+]
+
+export default function Filter() {
+  const {filter, setFilter} = useFilter()
   const minPriceRangeFieldId = useId()
   const categoryFieldId = useId()
 
   const handleMinPriceChange = (e: ChangeEvent) => {
     const input = e.target as HTMLInputElement
     const value = Number(input.value)
-    setMinPrice(value)
-    changeFilter((prevState) => ({
+    setFilter((prevState) => ({
       ...prevState,
       minPrice: value,
     }))
@@ -32,7 +31,7 @@ export default function Filter({
 
   const handleCategoryChange = (e: ChangeEvent) => {
     const input = e.target as HTMLInputElement
-    changeFilter((prevState) => ({
+    setFilter((prevState) => ({
       ...prevState,
       category: input.value,
     }))
@@ -47,10 +46,10 @@ export default function Filter({
           min="0"
           max="10000"
           id={minPriceRangeFieldId}
-          value={minPrice}
+          value={filter.minPrice}
           onChange={handleMinPriceChange}
         />
-        <span>${minPrice}</span>
+        <span>${filter.minPrice}</span>
       </div>
 
       <div className="flex flex-row gap-2 justify-center items-center">
@@ -58,15 +57,14 @@ export default function Filter({
         <select
           id={categoryFieldId}
           className="bg-secondary text-primary-900 p-2"
+          value={filter.category}
           onChange={handleCategoryChange}
         >
-          <option value="all">All</option>
-          <option value="smartphones">Smartphones</option>
-          <option value="laptops">Laptops</option>
-          <option value="home-decoration">Home Decoration</option>
-          <option value="groceries">Groceries</option>
-          <option value="skincare">Skincare</option>
-          <option value="fragrances">Fragrances</option>
+          {categories.map((category) => (
+            <option key={category.key} value={category.key}>
+              {category.label}
+            </option>
+          ))}
         </select>
       </div>
     </div>
