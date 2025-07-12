@@ -20,3 +20,5 @@ export interface Filter {
   minPrice: number
   category: string
 }
+
+export type CartItem = Product & {quantity: number}
