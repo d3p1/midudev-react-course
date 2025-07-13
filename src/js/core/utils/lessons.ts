@@ -8,6 +8,7 @@ import Lesson03 from '../../lesson03/component/App.tsx'
 import Lesson04 from '../../lesson04/component/App.tsx'
 import Lesson05 from '../../lesson05/component/App.tsx'
 import Lesson06 from '../../lesson06/component/App.tsx'
+import Lesson07 from '../../lesson07/component/App.tsx'
 import AdditionalNote from '../../lesson04/component/app/AdditionalNote.tsx'
 import type {Lessons} from '../types'
 
@@ -48,5 +49,11 @@ export const lessons: Lessons = [
     title: 'Shopping Cart',
     link: 'https://cursoreact.dev/06-use-reducer-use-context',
     component: Lesson06,
+  },
+  {
+    number: '07',
+    title: 'React Router From Scratch',
+    link: 'https://cursoreact.dev/07-midu-router',
+    component: Lesson07,
   },
 ]
