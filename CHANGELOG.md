@@ -1,3 +1,13 @@
+# [1.12.0](https://github.com/d3p1/midudev-react-course/compare/v1.11.0...v1.12.0) (2025-07-13)
+
+
+### Features
+
+* add cart feature in lesson number 06 [[#1](https://github.com/d3p1/midudev-react-course/issues/1)] ([c79d98e](https://github.com/d3p1/midudev-react-course/commit/c79d98e930a15ab69576da05205e64bbb5860dd2))
+* add cart reducer in lesson number 06 [[#1](https://github.com/d3p1/midudev-react-course/issues/1)] ([f322b28](https://github.com/d3p1/midudev-react-course/commit/f322b28015323df5c2770cbc254400c39ebc1c70))
+* add filter context in lesson number 06 [[#1](https://github.com/d3p1/midudev-react-course/issues/1)] ([7630b7f](https://github.com/d3p1/midudev-react-course/commit/7630b7f4f30a88868a7daf5492dbdfd0faa8195d))
+* init product grid and filters for lesson number 06 [[#1](https://github.com/d3p1/midudev-react-course/issues/1)] ([85bfce1](https://github.com/d3p1/midudev-react-course/commit/85bfce1267a78cfe7a44cd30c57b3c6706b5eb0d))
+
 # [1.11.0](https://github.com/d3p1/midudev-react-course/compare/v1.10.0...v1.11.0) (2025-07-11)
 
 
