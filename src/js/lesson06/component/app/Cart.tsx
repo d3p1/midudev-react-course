@@ -26,7 +26,7 @@ export default function Cart() {
         hidden
         className="peer/show-cart"
       />
-      <aside className="absolute top-0 right-0 z-20 h-full w-1/4 bg-primary-700 inset-shadow-[black_0_0_1rem] flex flex-col items-center translate-x-full peer-checked/show-cart:translate-x-0 transition-transform duration-500">
+      <aside className="absolute top-0 right-0 z-20 h-full w-1/4 bg-primary-700 inset-shadow-[black_0_0_1rem] overflow-y-auto flex flex-col items-center translate-x-full peer-checked/show-cart:translate-x-0 transition-transform duration-500">
         <ul className="flex flex-col justify-start items-center gap-4 py-4">
           {cart.map((item) => (
             <li

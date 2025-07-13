@@ -2,11 +2,9 @@
  * @description Cart context
  * @author      C. M. de Picciotto <d3p1@d3p1.dev> (https://d3p1.dev/)
  */
-import {createContext, type ReactNode, useState} from 'react'
+import {createContext, type ReactNode} from 'react'
+import useCartReducer from '../hook/useCartReducer.ts'
 import type {Product, CartItem} from '../types'
-
-export const findProductInCart = (cart: CartItem[], product: Product) =>
-  cart.findIndex((item) => item.id === product.id)
 
 export const CartContext = createContext<{
   cart: CartItem[] | null
@@ -21,31 +19,12 @@ export const CartContext = createContext<{
 })
 
 export function CartProvider({children}: {children: ReactNode}) {
-  const [cart, setCart] = useState<CartItem[]>([])
-
-  const addToCart = (product: Product) => {
-    const productIndex = findProductInCart(cart, product)
-
-    if (productIndex > -1) {
-      const newCart = structuredClone(cart)
-      newCart[productIndex].quantity += 1
-      setCart(newCart)
-      return
-    }
-
-    setCart([...cart, {...product, quantity: 1}])
-  }
-
-  const removeFromCart = (product: Product) => {
-    setCart((prevState) => prevState.filter((item) => item.id !== product.id))
-  }
-
-  const clearCart = () => {
-    setCart([])
-  }
+  const {state, addToCart, removeFromCart, clearCart} = useCartReducer()
 
   return (
-    <CartContext.Provider value={{cart, addToCart, removeFromCart, clearCart}}>
+    <CartContext.Provider
+      value={{cart: state, addToCart, removeFromCart, clearCart}}
+    >
       {children}
     </CartContext.Provider>
   )

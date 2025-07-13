@@ -3,7 +3,8 @@
  * @author      C. M. de Picciotto <d3p1@d3p1.dev> (https://d3p1.dev/)
  */
 import {useContext} from 'react'
-import {CartContext, findProductInCart} from '../context/cart.tsx'
+import {CartContext} from '../context/cart.tsx'
+import CartManager from '../utils/cart-manager.ts'
 import {type Product} from '../types'
 
 export default function useCart() {
@@ -13,7 +14,8 @@ export default function useCart() {
     throw new Error('useCart should be used inside a CartProvider.')
   }
 
-  const findInCart = (product: Product) => findProductInCart(cart, product)
+  const findInCart = (product: Product) =>
+    CartManager.findProductInCart(cart, product)
 
   return {cart, findInCart, addToCart, removeFromCart, clearCart}
 }
