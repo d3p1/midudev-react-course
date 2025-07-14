@@ -1,0 +1,96 @@
+/**
+ * @description Router
+ * @author      C. M. de Picciotto <d3p1@d3p1.dev> (https://d3p1.dev/)
+ */
+import {match} from 'path-to-regexp'
+import {
+  type MouseEvent,
+  type ReactNode,
+  type JSX,
+  createElement,
+  useState,
+  useEffect,
+} from 'react'
+import NotFound from './page/NotFound.tsx'
+
+const NAVIGATE_FORWARD_EVENT = 'pushstate'
+const NAVIGATE_BACK_EVENT = 'popstate'
+
+const _navigateTo = (pathname: string) => {
+  history.pushState(null, '', pathname)
+  const event = new Event(NAVIGATE_FORWARD_EVENT)
+  dispatchEvent(event)
+}
+
+export function Router({
+  routes,
+  defaultPageComponent = NotFound,
+}: {
+  routes: {
+    pathname: string
+    component: ({
+      routeParams,
+    }: {
+      routeParams?: {[key: string]: string}
+    }) => JSX.Element
+  }[]
+  defaultPageComponent?: () => JSX.Element
+}) {
+  const [currentPathname, setCurrentPathname] = useState(
+    window.location.pathname,
+  )
+
+  useEffect(() => {
+    const handleNavigateTo = () => setCurrentPathname(window.location.pathname)
+
+    window.addEventListener(NAVIGATE_FORWARD_EVENT, handleNavigateTo)
+    window.addEventListener(NAVIGATE_BACK_EVENT, handleNavigateTo)
+
+    return () => {
+      window.removeEventListener(NAVIGATE_FORWARD_EVENT, handleNavigateTo)
+      window.removeEventListener(NAVIGATE_BACK_EVENT, handleNavigateTo)
+    }
+  }, [])
+
+  let routeParams = {}
+  const page = routes.find((route) => {
+    if (route.pathname === currentPathname) {
+      return true
+    }
+
+    const matcher = match(route.pathname, {decode: decodeURIComponent})
+    const matched = matcher(currentPathname)
+
+    if (matched) {
+      routeParams = matched.params
+      return true
+    }
+
+    return false
+  })?.component
+
+  return page
+    ? createElement(page, {routeParams})
+    : createElement(defaultPageComponent, {routeParams})
+}
+
+export function Link({
+  pathname,
+  target = '_self',
+  children,
+}: {
+  pathname: string
+  target?: string
+  children?: ReactNode
+}) {
+  const handleClick = (e: MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault()
+    _navigateTo(pathname)
+  }
+
+  return (
+    <a href={pathname} target={target} onClick={handleClick}>
+      {children}
+    </a>
+  )
+}

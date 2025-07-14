@@ -2,6 +2,19 @@
  * @description App
  * @author      C. M. de Picciotto <d3p1@d3p1.dev> (https://d3p1.dev/)
  */
+import Home from './app/page/Home.tsx'
+import About from './app/page/About.tsx'
+import Search from './app/page/Search.tsx'
+import {Router} from './app/Router.tsx'
+
 export default function App() {
-  return <h3>REACT ROUTER</h3>
+  return (
+    <Router
+      routes={[
+        {pathname: '/midudev-react-course/', component: Home},
+        {pathname: '/midudev-react-course/about', component: About},
+        {pathname: '/midudev-react-course/search/:query', component: Search},
+      ]}
+    />
+  )
 }
