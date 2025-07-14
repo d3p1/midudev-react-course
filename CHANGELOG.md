@@ -1,3 +1,11 @@
+# [1.13.0](https://github.com/d3p1/midudev-react-course/compare/v1.12.0...v1.13.0) (2025-07-14)
+
+
+### Features
+
+* implement router with dynamic params in lesson number 07 [[#1](https://github.com/d3p1/midudev-react-course/issues/1)] ([e47aec2](https://github.com/d3p1/midudev-react-course/commit/e47aec2bca4f3a4e2082156a92206e82bf52acad))
+* init lesson number 07 [[#1](https://github.com/d3p1/midudev-react-course/issues/1)] ([08ed449](https://github.com/d3p1/midudev-react-course/commit/08ed449d1bb68701aca971a423e02aebd77cd9e9))
+
 # [1.12.0](https://github.com/d3p1/midudev-react-course/compare/v1.11.0...v1.12.0) (2025-07-13)
 
 
