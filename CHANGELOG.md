@@ -1,3 +1,10 @@
+# [1.15.0](https://github.com/d3p1/midudev-react-course/compare/v1.14.0...v1.15.0) (2025-07-15)
+
+
+### Features
+
+* add suspense to lesson number 07 [[#1](https://github.com/d3p1/midudev-react-course/issues/1)] ([52a6768](https://github.com/d3p1/midudev-react-course/commit/52a6768b954c9e43cc450849c1149046fa027f0c))
+
 # [1.14.0](https://github.com/d3p1/midudev-react-course/compare/v1.13.0...v1.14.0) (2025-07-15)
 
 
