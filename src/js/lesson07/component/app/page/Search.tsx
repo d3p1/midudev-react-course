@@ -15,7 +15,7 @@ export default function Search({
         Search {routeParams?.query}
       </h2>
       <p className="text-sm italic underline">
-        Go to <Link pathname="/midudev-react-course/">home</Link>
+        <Link pathname="/midudev-react-course/">Go to home</Link>
       </p>
     </div>
   )
