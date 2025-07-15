@@ -2,7 +2,7 @@
  * @description Route
  * @author      C. M. de Picciotto <d3p1@d3p1.dev> (https://d3p1.dev/)
  */
-import type {JSX} from 'react'
+import type {JSX, LazyExoticComponent} from 'react'
 
 // @ts-ignore
 export default function Route({
@@ -10,7 +10,7 @@ export default function Route({
   component,
 }: {
   pathname: string
-  component: () => JSX.Element
+  component: (() => JSX.Element) | LazyExoticComponent<() => JSX.Element>
 }) {
   return null
 }

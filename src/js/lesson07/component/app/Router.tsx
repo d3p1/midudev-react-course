@@ -3,6 +3,7 @@
  * @author      C. M. de Picciotto <d3p1@d3p1.dev> (https://d3p1.dev/)
  * @todo        Improve constants
  * @todo        Improve how `Route` component is handled
+ * @todo        Improve types
  */
 import {match} from 'path-to-regexp'
 import {
@@ -13,8 +14,8 @@ import {
   useState,
   useEffect,
   Children,
+  type LazyExoticComponent,
 } from 'react'
-import NotFound from './page/NotFound.tsx'
 
 const NAVIGATE_FORWARD_EVENT = 'pushstate'
 const NAVIGATE_BACK_EVENT = 'popstate'
@@ -28,18 +29,30 @@ const _navigateTo = (pathname: string) => {
 
 export function Router({
   routes,
-  defaultPageComponent = NotFound,
+  defaultPageComponent,
   children,
 }: {
   routes: {
     pathname: string
-    component: ({
-      routeParams,
-    }: {
-      routeParams?: {[key: string]: string}
-    }) => JSX.Element
+    component:
+      | (({
+          routeParams,
+        }: {
+          routeParams?: {[key: string]: string}
+        }) => JSX.Element)
+      | LazyExoticComponent<
+          ({
+            routeParams,
+          }: {
+            routeParams?: {[key: string]: string}
+          }) => JSX.Element
+        >
   }[]
-  defaultPageComponent?: () => JSX.Element
+  defaultPageComponent:
+    | (({routeParams}: {routeParams?: {[key: string]: string}}) => JSX.Element)
+    | LazyExoticComponent<
+        ({routeParams}: {routeParams?: {[key: string]: string}}) => JSX.Element
+      >
   children?: ReactNode
 }) {
   const [currentPathname, setCurrentPathname] = useState(
