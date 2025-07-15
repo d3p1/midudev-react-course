@@ -1,3 +1,14 @@
+# [1.14.0](https://github.com/d3p1/midudev-react-course/compare/v1.13.0...v1.14.0) (2025-07-15)
+
+
+### Features
+
+* add i18n to lesson number 07 [[#1](https://github.com/d3p1/midudev-react-course/issues/1)] ([be88916](https://github.com/d3p1/midudev-react-course/commit/be88916516e8ba453069e4484d41136fb3fb90b5))
+* add lazy loading feature to lessons [[#1](https://github.com/d3p1/midudev-react-course/issues/1)] ([ce54922](https://github.com/d3p1/midudev-react-course/commit/ce5492262419fd4b732361ffbf83623b0736d0a3))
+* add lazy loading to lesson number 07 [[#1](https://github.com/d3p1/midudev-react-course/issues/1)] ([452c77b](https://github.com/d3p1/midudev-react-course/commit/452c77b976972eee22996dc39bad7a3f9a5459b9))
+* add route component to lesson number 07 [[#1](https://github.com/d3p1/midudev-react-course/issues/1)] ([06a511b](https://github.com/d3p1/midudev-react-course/commit/06a511b92cdffda2008ddf83f8f9d01725c0681c))
+* improve links in lesson number 07 [[#1](https://github.com/d3p1/midudev-react-course/issues/1)] ([7ab33f9](https://github.com/d3p1/midudev-react-course/commit/7ab33f9859b4eb230895b62a594fec96dbb93c4d))
+
 # [1.13.0](https://github.com/d3p1/midudev-react-course/compare/v1.12.0...v1.13.0) (2025-07-14)
 
 
