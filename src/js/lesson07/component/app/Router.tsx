@@ -1,6 +1,8 @@
 /**
  * @description Router
  * @author      C. M. de Picciotto <d3p1@d3p1.dev> (https://d3p1.dev/)
+ * @todo        Improve constants
+ * @todo        Improve how `Route` component is handled
  */
 import {match} from 'path-to-regexp'
 import {
@@ -10,11 +12,13 @@ import {
   createElement,
   useState,
   useEffect,
+  Children,
 } from 'react'
 import NotFound from './page/NotFound.tsx'
 
 const NAVIGATE_FORWARD_EVENT = 'pushstate'
 const NAVIGATE_BACK_EVENT = 'popstate'
+const ROUTE_COMPONENT_TYPE = 'Route'
 
 const _navigateTo = (pathname: string) => {
   history.pushState(null, '', pathname)
@@ -25,6 +29,7 @@ const _navigateTo = (pathname: string) => {
 export function Router({
   routes,
   defaultPageComponent = NotFound,
+  children,
 }: {
   routes: {
     pathname: string
@@ -35,6 +40,7 @@ export function Router({
     }) => JSX.Element
   }[]
   defaultPageComponent?: () => JSX.Element
+  children?: ReactNode
 }) {
   const [currentPathname, setCurrentPathname] = useState(
     window.location.pathname,
@@ -51,6 +57,30 @@ export function Router({
       window.removeEventListener(NAVIGATE_BACK_EVENT, handleNavigateTo)
     }
   }, [])
+
+  if (children) {
+    const routesFromChildren = Children.map(
+      children as {
+        props: {pathname: string; component: () => JSX.Element}
+        type: {name: string}
+      }[],
+      ({
+        props: {pathname, component},
+        type: {name},
+      }: {
+        props: {pathname: string; component: () => JSX.Element}
+        type: {name: string}
+      }) => {
+        if (name !== ROUTE_COMPONENT_TYPE) {
+          return null
+        }
+
+        return {pathname, component}
+      },
+    ).filter(Boolean)
+
+    routes = routes.concat(routesFromChildren)
+  }
 
   let routeParams = {}
   const page = routes.find((route) => {
