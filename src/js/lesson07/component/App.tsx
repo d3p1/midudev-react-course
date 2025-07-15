@@ -17,6 +17,7 @@ export default function App() {
     <Router
       routes={[
         {pathname: '/midudev-react-course/search/:query', component: Search},
+        {pathname: '/midudev-react-course/:lang/about', component: About},
       ]}
       defaultPageComponent={NotFound}
     >

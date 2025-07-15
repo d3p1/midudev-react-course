@@ -10,7 +10,11 @@ export default function Route({
   component,
 }: {
   pathname: string
-  component: (() => JSX.Element) | LazyExoticComponent<() => JSX.Element>
+  component:
+    | (({routeParams}: {routeParams?: {[key: string]: string}}) => JSX.Element)
+    | LazyExoticComponent<
+        ({routeParams}: {routeParams?: {[key: string]: string}}) => JSX.Element
+      >
 }) {
   return null
 }
