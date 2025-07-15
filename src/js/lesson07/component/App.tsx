@@ -3,7 +3,7 @@
  * @author      C. M. de Picciotto <d3p1@d3p1.dev> (https://d3p1.dev/)
  * @todo        Refactor all lesson
  */
-import {lazy} from 'react'
+import {lazy, Suspense} from 'react'
 import Route from './app/Route.tsx'
 import {Router} from './app/Router.tsx'
 
@@ -14,15 +14,17 @@ const NotFound = lazy(() => import('./app/page/NotFound.tsx'))
 
 export default function App() {
   return (
-    <Router
-      routes={[
-        {pathname: '/midudev-react-course/search/:query', component: Search},
-        {pathname: '/midudev-react-course/:lang/about', component: About},
-      ]}
-      defaultPageComponent={NotFound}
-    >
-      <Route pathname="/midudev-react-course/" component={Home} />
-      <Route pathname="/midudev-react-course/about" component={About} />
-    </Router>
+    <Suspense fallback={<div className="font-black">Loading...</div>}>
+      <Router
+        routes={[
+          {pathname: '/midudev-react-course/search/:query', component: Search},
+          {pathname: '/midudev-react-course/:lang/about', component: About},
+        ]}
+        defaultPageComponent={NotFound}
+      >
+        <Route pathname="/midudev-react-course/" component={Home} />
+        <Route pathname="/midudev-react-course/about" component={About} />
+      </Router>
+    </Suspense>
   )
 }
