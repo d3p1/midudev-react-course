@@ -4,12 +4,16 @@
  */
 import type {JSX, LazyExoticComponent} from 'react'
 
+export type Component<T = null> =
+  | ((params: T) => JSX.Element)
+  | LazyExoticComponent<(params: T) => JSX.Element>
+
 export interface Lesson {
   number: string
   title: string
   link: string
-  additionalNote?: (() => JSX.Element) | LazyExoticComponent<() => JSX.Element>
-  component: (() => JSX.Element) | LazyExoticComponent<() => JSX.Element>
+  component: Component
+  additionalNote?: Component
 }
 
 export type Lessons = Array<Lesson>
