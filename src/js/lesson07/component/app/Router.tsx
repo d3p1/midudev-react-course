@@ -16,16 +16,9 @@ import {
   Children,
 } from 'react'
 import type {RouteComponent, Routes} from '../../types'
+import NavigationManager from '../../utils/navigation-manager.ts'
 
-const NAVIGATE_FORWARD_EVENT = 'pushstate'
-const NAVIGATE_BACK_EVENT = 'popstate'
 const ROUTE_COMPONENT_TYPE = 'Route'
-
-const _navigateTo = (pathname: string) => {
-  history.pushState(null, '', pathname)
-  const event = new Event(NAVIGATE_FORWARD_EVENT)
-  dispatchEvent(event)
-}
 
 export function Router({
   routes,
@@ -37,18 +30,15 @@ export function Router({
   children?: ReactNode
 }) {
   const [currentPathname, setCurrentPathname] = useState(
-    window.location.pathname,
+    NavigationManager.getCurrentPathName(),
   )
 
   useEffect(() => {
-    const handleNavigateTo = () => setCurrentPathname(window.location.pathname)
-
-    window.addEventListener(NAVIGATE_FORWARD_EVENT, handleNavigateTo)
-    window.addEventListener(NAVIGATE_BACK_EVENT, handleNavigateTo)
-
+    const navigationManager = new NavigationManager(() =>
+      setCurrentPathname(NavigationManager.getCurrentPathName()),
+    )
     return () => {
-      window.removeEventListener(NAVIGATE_FORWARD_EVENT, handleNavigateTo)
-      window.removeEventListener(NAVIGATE_BACK_EVENT, handleNavigateTo)
+      navigationManager.dispose()
     }
   }, [])
 
@@ -109,7 +99,7 @@ export function Link({
 }) {
   const handleClick = (e: MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault()
-    _navigateTo(pathname)
+    NavigationManager.navigate(pathname)
   }
 
   return (
