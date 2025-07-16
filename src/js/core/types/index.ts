@@ -4,7 +4,7 @@
  */
 import type {JSX, LazyExoticComponent} from 'react'
 
-export type Component<T = null> =
+export type Component<T = {}> =
   | ((params: T) => JSX.Element)
   | LazyExoticComponent<(params: T) => JSX.Element>
 
