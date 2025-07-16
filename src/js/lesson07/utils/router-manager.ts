@@ -55,7 +55,7 @@ export default class RouterManager {
         const matcher = match(route.pathname, {decode: decodeURIComponent})
         const matched = matcher(pathname)
         if (matched) {
-          params = matched.params
+          params = {routeParams: matched.params}
           return true
         }
 
