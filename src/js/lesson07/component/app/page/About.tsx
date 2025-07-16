@@ -1,11 +1,10 @@
 /**
  * @description About page
  * @author      C. M. de Picciotto <d3p1@d3p1.dev> (https://d3p1.dev/)
- * @todo        Improve about param type
  * @todo        Improve i18n logic
  * @todo        Improve i18n types
  */
-import {Link} from '../Router.tsx'
+import {Link} from '../core/Link.tsx'
 import type {RouteParams} from '../../../types'
 
 type I18nItem = {[key: string]: string}

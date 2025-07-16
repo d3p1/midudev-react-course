@@ -2,7 +2,7 @@
  * @description Search page
  * @author      C. M. de Picciotto <d3p1@d3p1.dev> (https://d3p1.dev/)
  */
-import {Link} from '../Router.tsx'
+import {Link} from '../core/Link.tsx'
 import type {RouteParams} from '../../../types'
 
 export default function Search({routeParams}: RouteParams) {

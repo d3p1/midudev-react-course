@@ -1,11 +1,10 @@
 /**
  * @description App
  * @author      C. M. de Picciotto <d3p1@d3p1.dev> (https://d3p1.dev/)
- * @todo        Refactor all lesson
  */
 import {lazy, Suspense} from 'react'
-import Route from './app/Route.tsx'
-import {Router} from './app/Router.tsx'
+import Route from './app/core/router/Route.tsx'
+import {Router} from './app/core/Router.tsx'
 
 const Home = lazy(() => import('./app/page/Home.tsx'))
 const About = lazy(() => import('./app/page/About.tsx'))
