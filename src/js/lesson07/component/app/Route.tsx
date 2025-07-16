@@ -2,19 +2,9 @@
  * @description Route
  * @author      C. M. de Picciotto <d3p1@d3p1.dev> (https://d3p1.dev/)
  */
-import type {JSX, LazyExoticComponent} from 'react'
+import type {Route} from '../../types'
 
 // @ts-ignore
-export default function Route({
-  pathname,
-  component,
-}: {
-  pathname: string
-  component:
-    | (({routeParams}: {routeParams?: {[key: string]: string}}) => JSX.Element)
-    | LazyExoticComponent<
-        ({routeParams}: {routeParams?: {[key: string]: string}}) => JSX.Element
-      >
-}) {
+export default function Route({pathname, component}: Route) {
   return null
 }

@@ -6,6 +6,7 @@
  * @todo        Improve i18n types
  */
 import {Link} from '../Router.tsx'
+import type {RouteParams} from '../../../types'
 
 type I18nItem = {[key: string]: string}
 
@@ -28,11 +29,7 @@ const useI18n = function (lang: keyof I18n): I18nItem {
   return i18n[lang] ?? i18n.en
 }
 
-export default function About({
-  routeParams,
-}: {
-  routeParams?: {[key: string]: string}
-}) {
+export default function About({routeParams}: RouteParams) {
   const i18n = useI18n(routeParams?.lang ?? 'en')
 
   return (

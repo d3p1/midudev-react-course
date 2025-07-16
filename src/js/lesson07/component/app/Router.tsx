@@ -14,8 +14,8 @@ import {
   useState,
   useEffect,
   Children,
-  type LazyExoticComponent,
 } from 'react'
+import type {RouteComponent, Routes} from '../../types'
 
 const NAVIGATE_FORWARD_EVENT = 'pushstate'
 const NAVIGATE_BACK_EVENT = 'popstate'
@@ -32,27 +32,8 @@ export function Router({
   defaultPageComponent,
   children,
 }: {
-  routes: {
-    pathname: string
-    component:
-      | (({
-          routeParams,
-        }: {
-          routeParams?: {[key: string]: string}
-        }) => JSX.Element)
-      | LazyExoticComponent<
-          ({
-            routeParams,
-          }: {
-            routeParams?: {[key: string]: string}
-          }) => JSX.Element
-        >
-  }[]
-  defaultPageComponent:
-    | (({routeParams}: {routeParams?: {[key: string]: string}}) => JSX.Element)
-    | LazyExoticComponent<
-        ({routeParams}: {routeParams?: {[key: string]: string}}) => JSX.Element
-      >
+  routes: Routes
+  defaultPageComponent: RouteComponent
   children?: ReactNode
 }) {
   const [currentPathname, setCurrentPathname] = useState(
