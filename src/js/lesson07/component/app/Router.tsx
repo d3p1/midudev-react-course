@@ -9,13 +9,12 @@ import {match} from 'path-to-regexp'
 import {
   type MouseEvent,
   type ReactNode,
-  type JSX,
   createElement,
   useState,
   useEffect,
   Children,
 } from 'react'
-import type {RouteComponent, Routes} from '../../types'
+import type {ChildrenRoutes, RouteComponent, Routes} from '../../types'
 import NavigationManager from '../../utils/navigation-manager.ts'
 
 const ROUTE_COMPONENT_TYPE = 'Route'
@@ -44,17 +43,8 @@ export function Router({
 
   if (children) {
     const routesFromChildren = Children.map(
-      children as {
-        props: {pathname: string; component: () => JSX.Element}
-        type: {name: string}
-      }[],
-      ({
-        props: {pathname, component},
-        type: {name},
-      }: {
-        props: {pathname: string; component: () => JSX.Element}
-        type: {name: string}
-      }) => {
+      children as ChildrenRoutes,
+      ({props: {pathname, component}, type: {name}}) => {
         if (name !== ROUTE_COMPONENT_TYPE) {
           return null
         }

@@ -14,3 +14,10 @@ export interface Route {
 }
 
 export type Routes = Route[]
+
+export type ChildrenRoutes = {
+  props: Route
+  type: {
+    name: string
+  }
+}[]
