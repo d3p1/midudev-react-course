@@ -1,3 +1,11 @@
+## [1.15.1](https://github.com/d3p1/midudev-react-course/compare/v1.15.0...v1.15.1) (2025-07-16)
+
+
+### Bug Fixes
+
+* adjust component type [[#1](https://github.com/d3p1/midudev-react-course/issues/1)] ([e0fc344](https://github.com/d3p1/midudev-react-course/commit/e0fc3446d4eacba61d95d4005d69c79d12deb757))
+* adjust get route params logic for lesson number 07 [[#1](https://github.com/d3p1/midudev-react-course/issues/1)] ([0425f38](https://github.com/d3p1/midudev-react-course/commit/0425f384ba8c6d58754f21cd7f54c4ee8f1ae98f))
+
 # [1.15.0](https://github.com/d3p1/midudev-react-course/compare/v1.14.0...v1.15.0) (2025-07-15)
 
 
