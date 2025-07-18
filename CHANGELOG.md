@@ -1,3 +1,10 @@
+## [1.17.2](https://github.com/d3p1/midudev-react-course/compare/v1.17.1...v1.17.2) (2025-07-18)
+
+
+### Bug Fixes
+
+* adjust e2e test workflow [[#1](https://github.com/d3p1/midudev-react-course/issues/1)] ([78c5e90](https://github.com/d3p1/midudev-react-course/commit/78c5e90820fad70e6bb3da008bea919ec14428a7))
+
 ## [1.17.1](https://github.com/d3p1/midudev-react-course/compare/v1.17.0...v1.17.1) (2025-07-18)
 
 
