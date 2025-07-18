@@ -1,3 +1,15 @@
+# [1.16.0](https://github.com/d3p1/midudev-react-course/compare/v1.15.1...v1.16.0) (2025-07-18)
+
+
+### Bug Fixes
+
+* adjust process routes when there is no children [[#1](https://github.com/d3p1/midudev-react-course/issues/1)] ([082f721](https://github.com/d3p1/midudev-react-course/commit/082f721808855953ea5445abf69a31371b276502))
+
+
+### Features
+
+* add test for lesson number 07 [[#1](https://github.com/d3p1/midudev-react-course/issues/1)] ([b119121](https://github.com/d3p1/midudev-react-course/commit/b119121f311484b84196ba43e3d719720218f662))
+
 ## [1.15.1](https://github.com/d3p1/midudev-react-course/compare/v1.15.0...v1.15.1) (2025-07-16)
 
 
