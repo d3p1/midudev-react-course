@@ -61,3 +61,6 @@ jobs:
       - name: Deploy to GitHub Pages
         id  : deployment
         uses: actions/deploy-pages@v4
+
+      - name: Test e2e
+        run: BASE_URL=${{ steps.deployment.outputs.page_url }} npm run test:e2e
