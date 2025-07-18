@@ -29,8 +29,11 @@ export function Router({
     }
   }, [])
 
-  const routesFromChildren = RouterManager.findRoutesFromChildren(children)
-  routes = routes.concat(routesFromChildren)
+  if (children) {
+    const routesFromChildren = RouterManager.findRoutesFromChildren(children)
+    routes = routes.concat(routesFromChildren)
+  }
+
   const {component, params} = RouterManager.findRouteComponent(
     routes,
     currentPathname,
