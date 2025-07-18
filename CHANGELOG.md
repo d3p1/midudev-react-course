@@ -1,3 +1,10 @@
+# [1.17.0](https://github.com/d3p1/midudev-react-course/compare/v1.16.0...v1.17.0) (2025-07-18)
+
+
+### Features
+
+* add e2e test [[#1](https://github.com/d3p1/midudev-react-course/issues/1)] ([8012501](https://github.com/d3p1/midudev-react-course/commit/80125012f6c6c77e616a7c29415db49da1473272))
+
 # [1.16.0](https://github.com/d3p1/midudev-react-course/compare/v1.15.1...v1.16.0) (2025-07-18)
 
 
