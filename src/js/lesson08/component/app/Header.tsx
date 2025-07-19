@@ -4,16 +4,15 @@
  */
 import * as React from 'react'
 import {useState} from 'react'
-import type {TodoItemTitle} from '../../types'
+import {useTodo} from '../../hook/useTodo.ts'
 
-export const Header: React.FC<{
-  onAddItem: ({title}: TodoItemTitle) => void
-}> = ({onAddItem}) => {
+export const Header = () => {
+  const {handleAddItem} = useTodo()
   const [newTodoItem, setNewTodoItem] = useState('')
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    onAddItem({title: newTodoItem})
+    handleAddItem({title: newTodoItem})
     setNewTodoItem('')
   }
 

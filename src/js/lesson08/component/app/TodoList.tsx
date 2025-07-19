@@ -3,18 +3,16 @@
  * @author      C. M. de Picciotto <d3p1@d3p1.dev> (https://d3p1.dev/)
  */
 import * as React from 'react'
-import type {TodoItem, TodoItemId, TodoList as TodoListType} from '../../types'
+import {useTodo} from '../../hook/useTodo.ts'
 
-export const TodoList: React.FC<{
-  todos: TodoListType
-  onRemoveTodos: ({id}: TodoItemId) => void
-  onToggleCompleteItem: ({id, isCompleted}: Omit<TodoItem, 'title'>) => void
-}> = ({todos, onRemoveTodos, onToggleCompleteItem}) => {
+export const TodoList = () => {
+  const {todos, handleToggleCompleteItem, handleRemoveItem} = useTodo()
+
   return (
     <ul className="flex flex-col justify-center items-center gap-4 min-w-1/3">
       {todos.map((todo) => {
         const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-          onToggleCompleteItem({id: todo.id, isCompleted: e.target.checked})
+          handleToggleCompleteItem({id: todo.id, isCompleted: e.target.checked})
         }
 
         const isCompletedStyles = todo.isCompleted ? 'italic line-through' : ''
@@ -37,7 +35,7 @@ export const TodoList: React.FC<{
 
             <button
               className="text-xs cursor-pointer opacity-50 hover:opacity-100 hover:scale-150 transition-all duration-500"
-              onClick={() => onRemoveTodos({id: todo.id})}
+              onClick={() => handleRemoveItem({id: todo.id})}
             >
               x
             </button>

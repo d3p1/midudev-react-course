@@ -4,19 +4,11 @@
  */
 import * as React from 'react'
 import {FILTERS} from '../../data/filters.ts'
-import {type FilterValue} from '../../types'
+import {useTodo} from '../../hook/useTodo.ts'
 
-export const Footer: React.FC<{
-  totalActiveItems: number
-  currentFilterValue: FilterValue
-  onFilterChange: (filterValue: FilterValue) => void
-  onClearCompleted: () => void
-}> = ({
-  totalActiveItems,
-  currentFilterValue,
-  onFilterChange,
-  onClearCompleted,
-}) => {
+export const Footer = () => {
+  const {filter, handleFilterChange, handleClearCompleted, totalActiveItems} = useTodo()
+
   return (
     <footer className="flex flex-row justify-between items-center gap-8 text-sm">
       <p className="italic">Total of {totalActiveItems} active items</p>
@@ -24,10 +16,10 @@ export const Footer: React.FC<{
         {Object.entries(FILTERS).map(([key, {label, value}]) => {
           const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
             e.preventDefault()
-            onFilterChange(value)
+            handleFilterChange(value)
           }
 
-          const isCurrentFilter = value === currentFilterValue
+          const isCurrentFilter = value === filter
           const filterStyles = isCurrentFilter
             ? 'bg-secondary text-primary-900'
             : 'bg-transparent text-secondary'
@@ -45,7 +37,7 @@ export const Footer: React.FC<{
       </ul>
       <button
         className="border-secondary border-2 border-solid p-4 font-black cursor-pointer"
-        onClick={onClearCompleted}
+        onClick={handleClearCompleted}
       >
         Clear completed items
       </button>
