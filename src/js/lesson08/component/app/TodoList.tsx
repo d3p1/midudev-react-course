@@ -6,13 +6,13 @@ import * as React from 'react'
 import {useTodo} from '../../hook/useTodo.ts'
 
 export const TodoList = () => {
-  const {todos, handleToggleCompleteItem, handleRemoveItem} = useTodo()
+  const {todos, handleUpdateItem, handleRemoveItem} = useTodo()
 
   return (
     <ul className="flex flex-col justify-center items-center gap-4 min-w-1/3">
       {todos.map((todo) => {
         const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-          handleToggleCompleteItem({id: todo.id, isCompleted: e.target.checked})
+          handleUpdateItem({id: todo.id, isCompleted: e.target.checked})
         }
 
         const isCompletedStyles = todo.isCompleted ? 'italic line-through' : ''
