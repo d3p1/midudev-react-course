@@ -1,3 +1,11 @@
+# [1.19.0](https://github.com/d3p1/midudev-react-course/compare/v1.18.0...v1.19.0) (2025-07-19)
+
+
+### Features
+
+* add context to lesson number 08 [[#1](https://github.com/d3p1/midudev-react-course/issues/1)] ([2178456](https://github.com/d3p1/midudev-react-course/commit/2178456a8a437696b850a545ad47f538d44b00d9))
+* add reducer to lesson number 08 [[#1](https://github.com/d3p1/midudev-react-course/issues/1)] ([4bcd01d](https://github.com/d3p1/midudev-react-course/commit/4bcd01dfb27293a37de38d5c2a9b7ed345812bd5))
+
 # [1.18.0](https://github.com/d3p1/midudev-react-course/compare/v1.17.2...v1.18.0) (2025-07-19)
 
 
