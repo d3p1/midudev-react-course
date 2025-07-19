@@ -51,4 +51,10 @@ export const lessons: Lessons = [
     link: 'https://cursoreact.dev/07-midu-router',
     component: lazy(() => import('../../lesson07/component/App.tsx')),
   },
+  {
+    number: '08',
+    title: 'TODO App',
+    link: 'https://cursoreact.dev/08-todo-app-typescript',
+    component: lazy(() => import('../../lesson08/component/App.tsx')),
+  },
 ]
