@@ -1,6 +1,6 @@
 {
   "name": "@d3p1/midudev-react-course",
-  "version": "1.17.2",
+  "version": "1.18.0",
   "description": "A React course from midudev",
   "private": true,
   "type": "module",
