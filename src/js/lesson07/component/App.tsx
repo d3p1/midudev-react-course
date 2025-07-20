@@ -4,7 +4,6 @@
  */
 import {lazy, Suspense} from 'react'
 import {TranslatorProvider} from '../context/translator.tsx'
-import Route from './app/core/router/Route.tsx'
 import {Router} from './app/core/Router.tsx'
 
 const Home = lazy(() => import('./app/page/Home.tsx'))
@@ -19,16 +18,21 @@ export default function App() {
         <Router
           routes={[
             {
+              pathname: '/midudev-react-course/',
+              component: Home,
+            },
+            {
+              pathname: '/midudev-react-course/about',
+              component: About,
+            },
+            {
               pathname: '/midudev-react-course/search/:query',
               component: Search,
             },
             {pathname: '/midudev-react-course/:lang/about', component: About},
           ]}
           defaultPageComponent={NotFound}
-        >
-          <Route pathname="/midudev-react-course/" component={Home} />
-          <Route pathname="/midudev-react-course/about" component={About} />
-        </Router>
+        ></Router>
       </Suspense>
     </TranslatorProvider>
   )
