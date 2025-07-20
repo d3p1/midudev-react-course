@@ -1,3 +1,17 @@
+# [1.20.0](https://github.com/d3p1/midudev-react-course/compare/v1.19.0...v1.20.0) (2025-07-20)
+
+
+### Bug Fixes
+
+* adjust translator reducer action type for lesson number 09 [[#1](https://github.com/d3p1/midudev-react-course/issues/1)] ([38a355b](https://github.com/d3p1/midudev-react-course/commit/38a355b3ddc9dccd8ffc5adc044ef71ba6fc3a3c))
+
+
+### Features
+
+* add language logic to lesson number 09 [[#1](https://github.com/d3p1/midudev-react-course/issues/1)] ([9336caf](https://github.com/d3p1/midudev-react-course/commit/9336cafc66293029a5c4a633b0ad91a3e1ee0acf))
+* init lesson number 09 [[#1](https://github.com/d3p1/midudev-react-course/issues/1)] ([7b348bb](https://github.com/d3p1/midudev-react-course/commit/7b348bb94bcf5b0e5eaa1652b6e25b14b1283a14))
+* init styles for lesson number 09 [[#1](https://github.com/d3p1/midudev-react-course/issues/1)] ([cc36de1](https://github.com/d3p1/midudev-react-course/commit/cc36de1a9cec3f8e8aa29703c7ffcbef377b0b2d))
+
 # [1.19.0](https://github.com/d3p1/midudev-react-course/compare/v1.18.0...v1.19.0) (2025-07-19)
 
 
