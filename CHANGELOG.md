@@ -1,3 +1,10 @@
+## [1.20.3](https://github.com/d3p1/midudev-react-course/compare/v1.20.2...v1.20.3) (2025-07-20)
+
+
+### Bug Fixes
+
+* avoid using route component of lesson number 07 to solve issue which removes then in production mode [[#1](https://github.com/d3p1/midudev-react-course/issues/1)] ([5163065](https://github.com/d3p1/midudev-react-course/commit/5163065b64f07725885cbbd071201489acaf9627))
+
 ## [1.20.2](https://github.com/d3p1/midudev-react-course/compare/v1.20.1...v1.20.2) (2025-07-20)
 
 
