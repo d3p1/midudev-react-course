@@ -6,5 +6,5 @@ import type {Route} from '../../../../types'
 
 // @ts-ignore
 export default function Route({pathname, component}: Route) {
-  return null
+  return <></>
 }
