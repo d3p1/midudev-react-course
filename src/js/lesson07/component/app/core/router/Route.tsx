@@ -4,7 +4,11 @@
  */
 import type {Route} from '../../../../types'
 
-// @ts-ignore
 export default function Route({pathname, component}: Route) {
-  return <></>
+  return (
+    <>
+      <input type="text" value={pathname} hidden />
+      <input type="text" value={typeof component} hidden />
+    </>
+  )
 }
