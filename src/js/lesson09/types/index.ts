@@ -31,4 +31,4 @@ export type TranslatorReducerAction =
       type: (typeof TRANSLATOR_ACTION_TYPE)['SET_TO_TEXT']
       payload: TranslatorToText
     }
-  | {type: unknown; payload: unknown}
+  | {type: any; payload: any}
