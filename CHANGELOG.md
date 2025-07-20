@@ -1,3 +1,10 @@
+## [1.20.2](https://github.com/d3p1/midudev-react-course/compare/v1.20.1...v1.20.2) (2025-07-20)
+
+
+### Bug Fixes
+
+* avoid returning null for route component of lesson number 07 to solve issue which removes then in production mode [[#1](https://github.com/d3p1/midudev-react-course/issues/1)] ([23c8393](https://github.com/d3p1/midudev-react-course/commit/23c83932b6c164a47629410eb5f94b3fde696126))
+
 ## [1.20.1](https://github.com/d3p1/midudev-react-course/compare/v1.20.0...v1.20.1) (2025-07-20)
 
 
