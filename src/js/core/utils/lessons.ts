@@ -57,4 +57,10 @@ export const lessons: Lessons = [
     link: 'https://cursoreact.dev/08-todo-app-typescript',
     component: lazy(() => import('../../lesson08/component/App.tsx')),
   },
+  {
+    number: '09',
+    title: 'Google Translate',
+    link: 'https://cursoreact.dev/09-google-translate-clone',
+    component: lazy(() => import('../../lesson09/component/App.tsx')),
+  },
 ]
