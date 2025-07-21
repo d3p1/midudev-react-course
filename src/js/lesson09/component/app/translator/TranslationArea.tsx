@@ -29,7 +29,7 @@ export const TranslationArea: React.FC<Props> = ({
       placeholder={placeholder}
       value={value}
       onChange={handleOnChange}
-      className="p-8 border-primary-700 border-solid border-2 rounded-2xl"
+      className="p-8 border-primary-700 border-solid border-2 rounded-2xl resize-none"
       disabled={isDisabled}
       autoFocus={isAutoFocus}
     ></textarea>
