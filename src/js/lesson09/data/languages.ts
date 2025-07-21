@@ -17,4 +17,4 @@ export const LANGUAGES = {
   },
 } as const
 
-export const AUTO_LANGUAGE = 'auto'
+export const AUTO_LANGUAGE_KEY = 'auto'

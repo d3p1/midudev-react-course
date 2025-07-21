@@ -2,7 +2,7 @@
  * @description Translator reducer
  * @author      C. M. de Picciotto <d3p1@d3p1.dev> (https://d3p1.dev/)
  */
-import {AUTO_LANGUAGE} from '../data/languages.ts'
+import {AUTO_LANGUAGE_KEY} from '../data/languages.ts'
 import type {Translator, TranslatorReducerAction} from '../types'
 
 export const TRANSLATOR_ACTION_TYPE = {
@@ -33,12 +33,13 @@ export const translatorReducer: (
       }
 
     case TRANSLATOR_ACTION_TYPE.INTERCHANGE:
-      if (state.fromLang === AUTO_LANGUAGE) {
+      if (state.fromLang === AUTO_LANGUAGE_KEY) {
         return state
       }
 
       return {
         ...state,
+        fromText: state.toText,
         fromLang: state.toLang,
         toLang: state.fromLang,
       }
@@ -47,14 +48,12 @@ export const translatorReducer: (
       return {
         ...state,
         fromText: payload,
-        isLoading: true,
       }
 
     case TRANSLATOR_ACTION_TYPE.SET_TO_TEXT:
       return {
         ...state,
         toText: payload,
-        isLoading: false,
       }
   }
 

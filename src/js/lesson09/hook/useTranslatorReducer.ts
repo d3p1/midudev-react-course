@@ -16,7 +16,6 @@ export const useTranslatorReducer = () => {
     toLang: LANGUAGES.es.key,
     fromText: '',
     toText: '',
-    isLoading: false,
   })
 
   const handleSetFromLang = (lang: FromLang) => {
