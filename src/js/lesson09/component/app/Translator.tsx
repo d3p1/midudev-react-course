@@ -5,10 +5,12 @@
 import {useTranslation} from '../../hook/useTranslation.ts'
 import {useTranslatorReducer} from '../../hook/useTranslatorReducer.ts'
 import {FromElementType} from '../../types'
+import {CopyIcon} from './translator/icon/CopyIcon.tsx'
 import {InterchangeIcon} from './translator/icon/InterchangeIcon.tsx'
+import {SpeakerIcon} from './translator/icon/SpeakerIcon.tsx'
 import {LangSelector} from './translator/LangSelector.tsx'
 import {TranslationArea} from './translator/TranslationArea.tsx'
-import {AUTO_LANGUAGE_KEY} from '../../data/languages.ts'
+import {SPEECH_LANGUAGES, AUTO_LANGUAGE_KEY} from '../../data/languages.ts'
 
 export const Translator = () => {
   const {
@@ -55,12 +57,31 @@ export const Translator = () => {
           onChange={handleSetFromText}
           isAutoFocus={true}
         />
-        <TranslationArea
-          value={state.toText}
-          placeholder="Translation..."
-          onChange={handleSetToText}
-          isDisabled={true}
-        />
+        <div className="relative w-full">
+          <TranslationArea
+            value={state.toText}
+            placeholder="Translation..."
+            onChange={handleSetToText}
+            isDisabled={true}
+          >
+            <button
+              onClick={() => navigator.clipboard.writeText(state.toText)}
+              className="absolute bottom-5 right-5 cursor-pointer"
+            >
+              <CopyIcon />
+            </button>
+            <button
+              onClick={() => {
+                const utterance = new SpeechSynthesisUtterance(state.toText)
+                utterance.lang = SPEECH_LANGUAGES[state.toLang]
+                speechSynthesis.speak(utterance)
+              }}
+              className="absolute bottom-5 right-20 cursor-pointer"
+            >
+              <SpeakerIcon />
+            </button>
+          </TranslationArea>
+        </div>
       </div>
     </div>
   )

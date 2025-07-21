@@ -17,4 +17,10 @@ export const LANGUAGES = {
   },
 } as const
 
+export const SPEECH_LANGUAGES = {
+  en: 'en-US',
+  es: 'es-AR',
+  de: 'nl-NL',
+}
+
 export const AUTO_LANGUAGE_KEY = 'auto'

@@ -10,12 +10,14 @@ interface Props {
   onChange: (value: string) => void
   isDisabled?: boolean
   isAutoFocus?: boolean
+  children?: React.ReactNode
 }
 
 export const TranslationArea: React.FC<Props> = ({
   placeholder,
   value,
   onChange,
+  children,
   isDisabled = false,
   isAutoFocus = false,
 }) => {
@@ -24,14 +26,17 @@ export const TranslationArea: React.FC<Props> = ({
   }
 
   return (
-    <textarea
-      name="translation-area"
-      placeholder={placeholder}
-      value={value}
-      onChange={handleOnChange}
-      className="p-8 border-primary-700 border-solid border-2 rounded-2xl resize-none"
-      disabled={isDisabled}
-      autoFocus={isAutoFocus}
-    ></textarea>
+    <>
+      <textarea
+        name="translation-area"
+        placeholder={placeholder}
+        value={value}
+        onChange={handleOnChange}
+        className="p-8 border-primary-700 border-solid border-2 rounded-2xl resize-none w-full h-full"
+        disabled={isDisabled}
+        autoFocus={isAutoFocus}
+      />
+      {children}
+    </>
   )
 }
