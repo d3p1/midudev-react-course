@@ -1,3 +1,17 @@
+# [1.21.0](https://github.com/d3p1/midudev-react-course/compare/v1.20.3...v1.21.0) (2025-07-21)
+
+
+### Bug Fixes
+
+* remove resize for translation textarea in lesson number 09 [[#1](https://github.com/d3p1/midudev-react-course/issues/1)] ([2405d59](https://github.com/d3p1/midudev-react-course/commit/2405d591428265c072dea4f6eb575b976b533b8f))
+
+
+### Features
+
+* add speech and copy feature to translator in lesson number 09 [[#1](https://github.com/d3p1/midudev-react-course/issues/1)] ([2ee8469](https://github.com/d3p1/midudev-react-course/commit/2ee846932fd8f8f3024c214ceda04ffc87897fed))
+* add test for lesson number 09 [[#1](https://github.com/d3p1/midudev-react-course/issues/1)] ([484c1c3](https://github.com/d3p1/midudev-react-course/commit/484c1c3bfcb1ea23c7ee643f98268289dabf31a0))
+* add translation feature to lesson number 09 [[#1](https://github.com/d3p1/midudev-react-course/issues/1)] ([c85e19f](https://github.com/d3p1/midudev-react-course/commit/c85e19f8fdeee88ef01b5f10f747bf0b4c7ff095))
+
 ## [1.20.3](https://github.com/d3p1/midudev-react-course/compare/v1.20.2...v1.20.3) (2025-07-20)
 
 
