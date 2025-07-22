@@ -63,4 +63,10 @@ export const lessons: Lessons = [
     link: 'https://cursoreact.dev/09-google-translate-clone',
     component: lazy(() => import('../../lesson09/component/App.tsx')),
   },
+  {
+    number: '10',
+    title: 'Redux CRUD',
+    link: 'https://cursoreact.dev/10-crud-redux',
+    component: lazy(() => import('../../lesson10/component/App.tsx')),
+  },
 ]
