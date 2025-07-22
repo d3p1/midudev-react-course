@@ -1,3 +1,11 @@
+# [1.22.0](https://github.com/d3p1/midudev-react-course/compare/v1.21.0...v1.22.0) (2025-07-22)
+
+
+### Features
+
+* init lesson number 10 [[#1](https://github.com/d3p1/midudev-react-course/issues/1)] ([dc6db65](https://github.com/d3p1/midudev-react-course/commit/dc6db65d763d10d28b515662ef076e4d3ee4002e))
+* init redux for lesson number 10 [[#1](https://github.com/d3p1/midudev-react-course/issues/1)] ([00f5a73](https://github.com/d3p1/midudev-react-course/commit/00f5a7312bd62bb1f0301db49ac97c5f54c5b1fd))
+
 # [1.21.0](https://github.com/d3p1/midudev-react-course/compare/v1.20.3...v1.21.0) (2025-07-21)
 
 
