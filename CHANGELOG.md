@@ -1,3 +1,10 @@
+# [1.23.0](https://github.com/d3p1/midudev-react-course/compare/v1.22.0...v1.23.0) (2025-07-23)
+
+
+### Features
+
+* add lesson number 10 [[#1](https://github.com/d3p1/midudev-react-course/issues/1)] ([2e3f294](https://github.com/d3p1/midudev-react-course/commit/2e3f29466a5c0d70596efb7ddb122cb23db8c669))
+
 # [1.22.0](https://github.com/d3p1/midudev-react-course/compare/v1.21.0...v1.22.0) (2025-07-22)
 
 
