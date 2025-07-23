@@ -1,3 +1,15 @@
+# [1.24.0](https://github.com/d3p1/midudev-react-course/compare/v1.23.0...v1.24.0) (2025-07-23)
+
+
+### Bug Fixes
+
+* solve type error for middlewares defined in lesson number 10 [[#1](https://github.com/d3p1/midudev-react-course/issues/1)] ([ab26171](https://github.com/d3p1/midudev-react-course/commit/ab261715ac520ffc7385aa80858d490da8abb07f))
+
+
+### Features
+
+* add form validation to lesson number 10 [[#1](https://github.com/d3p1/midudev-react-course/issues/1)] ([7e5e4ce](https://github.com/d3p1/midudev-react-course/commit/7e5e4cee984abe0323082d1509823c468491b51c))
+
 # [1.23.0](https://github.com/d3p1/midudev-react-course/compare/v1.22.0...v1.23.0) (2025-07-23)
 
 
