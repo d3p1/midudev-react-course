@@ -1,3 +1,12 @@
+# [1.25.0](https://github.com/d3p1/midudev-react-course/compare/v1.24.0...v1.25.0) (2025-07-23)
+
+
+### Features
+
+* add sort and filter features to lesson number 11 [[#1](https://github.com/d3p1/midudev-react-course/issues/1)] ([692be86](https://github.com/d3p1/midudev-react-course/commit/692be86067d9dd2ba80abfab480d6ae0fe53275d))
+* add table of users to lesson number 11 [[#1](https://github.com/d3p1/midudev-react-course/issues/1)] ([62708c7](https://github.com/d3p1/midudev-react-course/commit/62708c79c77ec45772df069911ee6dfc28339bcb))
+* init lesson number 11 [[#1](https://github.com/d3p1/midudev-react-course/issues/1)] ([3842af3](https://github.com/d3p1/midudev-react-course/commit/3842af3ccba30f3e6b77b4fd4d33389a9ba1991a))
+
 # [1.24.0](https://github.com/d3p1/midudev-react-course/compare/v1.23.0...v1.24.0) (2025-07-23)
 
 
