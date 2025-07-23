@@ -44,8 +44,10 @@ export const store = configureStore({
   reducer: {
     users: userReducer,
   },
-  // @ts-ignore
-  middleware: () => [storageMiddleware, randomDeleteErrorMiddleware],
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware()
+      .concat(storageMiddleware)
+      .concat(randomDeleteErrorMiddleware),
 })
 
 export type RootState = ReturnType<typeof store.getState>
