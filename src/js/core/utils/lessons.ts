@@ -69,4 +69,10 @@ export const lessons: Lessons = [
     link: 'https://cursoreact.dev/10-crud-redux',
     component: lazy(() => import('../../lesson10/component/App.tsx')),
   },
+  {
+    number: '11',
+    title: 'User Table',
+    link: 'https://cursoreact.dev/11-typescript-prueba-tecnica',
+    component: lazy(() => import('../../lesson11/component/App.tsx')),
+  },
 ]
