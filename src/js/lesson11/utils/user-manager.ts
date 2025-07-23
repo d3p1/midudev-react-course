@@ -2,7 +2,7 @@
  * @description User manager
  * @author      C. M. de Picciotto <d3p1@d3p1.dev> (https://d3p1.dev/)
  */
-import type {User, UserResult} from '../types'
+import {type User, type UserResult, UserSortType} from '../types'
 
 const USER_API_BASE_URL = 'https://randomuser.me/api/'
 const USER_API_PARAMS = 'results=100&inc=id,name,location,picture'
@@ -10,9 +10,9 @@ const USER_API_ENDPOINT = `${USER_API_BASE_URL}?${USER_API_PARAMS}`
 
 export class UserManager {
   /**
-   * @type {User[] | null}
+   * @type {User[]}
    */
-  users: User[] | null = null
+  users: User[] = []
 
   /**
    * Constructor
@@ -20,12 +20,57 @@ export class UserManager {
   constructor() {}
 
   /**
+   * Filter users by country
+   *
+   * @param   {User[]} users
+   * @param   {string} country
+   * @returns {User[]}
+   */
+  static filterByCountry(users: User[], country: string): User[] {
+    return users.filter((user) => user.location.country.includes(country))
+  }
+
+  /**
+   * Sort users in place
+   *
+   * @param   {User[]}       users
+   * @param   {UserSortType} sortType
+   * @returns {void}
+   */
+  static sort(users: User[], sortType: UserSortType): void {
+    const collator = new Intl.Collator('en', {sensitivity: 'base'})
+    let sorter
+
+    switch (sortType) {
+      case UserSortType.Firstname:
+        sorter = (a: User, b: User) =>
+          collator.compare(a.name.first, b.name.first)
+        break
+
+      case UserSortType.Lastname:
+        sorter = (a: User, b: User) =>
+          collator.compare(a.name.last, b.name.last)
+        break
+
+      case UserSortType.Country:
+        sorter = (a: User, b: User) =>
+          collator.compare(a.location.country, b.location.country)
+        break
+
+      default:
+        sorter = () => -1
+    }
+
+    users.sort(sorter)
+  }
+
+  /**
    * Load users
    *
    * @returns {Promise<void>}
    */
   async loadUsers(): Promise<void> {
-    if (!this.users) {
+    if (!this.users.length) {
       this.users = await this.#fetchUsers()
     }
   }

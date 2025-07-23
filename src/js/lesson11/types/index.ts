@@ -2,9 +2,11 @@
  * @description Types
  * @author      C. M. de Picciotto <d3p1@d3p1.dev> (https://d3p1.dev/)
  */
+export type UserId = string
+
 export interface User {
   id: {
-    value: string
+    value: UserId
   }
   name: {
     first: string
@@ -21,4 +23,10 @@ export interface User {
 export type UserResult = {
   results?: User[]
   error?: string
+}
+
+export enum UserSortType {
+  Firstname = 'firstname',
+  Lastname = 'lastname',
+  Country = 'country',
 }

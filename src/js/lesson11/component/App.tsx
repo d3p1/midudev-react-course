@@ -3,14 +3,14 @@
  * @author      C. M. de Picciotto <d3p1@d3p1.dev> (https://d3p1.dev/)
  */
 import {useEffect, useState} from 'react'
-import type {User} from '../types'
+import type {User, UserId} from '../types'
 import {UserManager} from '../utils/user-manager.ts'
 import {UserTable} from './app/UserTable.tsx'
 
 const userManager = new UserManager()
 
 export default function App() {
-  const [users, setUsers] = useState<User[] | null>(null)
+  const [users, setUsers] = useState<User[]>([])
   const [error, setError] = useState<string | null>(null)
 
   useEffect(() => {
@@ -24,9 +24,25 @@ export default function App() {
       })
   }, [])
 
+  const handleRemoveUser = (id: UserId) => {
+    if (users) {
+      setUsers(users.filter((user) => user.id.value !== id))
+    }
+  }
+
+  const handleRestart = () => {
+    setUsers(userManager.users)
+  }
+
   if (error) {
     return <p className="text-accent-secondary text-sm italic">{error}</p>
   }
 
-  return <UserTable users={users} />
+  return (
+    <UserTable
+      users={users}
+      handleRemoveUser={handleRemoveUser}
+      handleRestart={handleRestart}
+    />
+  )
 }
