@@ -58,7 +58,7 @@ export class UserManager {
         break
 
       default:
-        sorter = () => -1
+        sorter = () => 0
     }
 
     return users.toSorted(sorter)
