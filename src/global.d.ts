@@ -9,4 +9,8 @@ declare global {
     Translator: any
     LanguageDetector: any
   }
+
+  interface Array<T> {
+    toSorted: (sorter: (a: T, b: T) => number) => Array<T>
+  }
 }

@@ -31,13 +31,13 @@ export class UserManager {
   }
 
   /**
-   * Sort users in place
+   * Sort users
    *
    * @param   {User[]}       users
    * @param   {UserSortType} sortType
-   * @returns {void}
+   * @returns {User[]}
    */
-  static sort(users: User[], sortType: UserSortType): void {
+  static sort(users: User[], sortType: UserSortType): User[] {
     const collator = new Intl.Collator('en', {sensitivity: 'base'})
     let sorter
 
@@ -61,7 +61,7 @@ export class UserManager {
         sorter = () => -1
     }
 
-    users.sort(sorter)
+    return users.toSorted(sorter)
   }
 
   /**

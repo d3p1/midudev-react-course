@@ -22,6 +22,7 @@ export type UserResult = {
 }
 
 export enum UserSortType {
+  None = 'none',
   Firstname = 'firstname',
   Lastname = 'lastname',
   Country = 'country',

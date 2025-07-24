@@ -3,7 +3,7 @@
  * @author      C. M. de Picciotto <d3p1@d3p1.dev> (https://d3p1.dev/)
  */
 import * as React from 'react'
-import {useState} from 'react'
+import {useMemo, useState} from 'react'
 import {type User, UserSortType} from '../../types'
 import {UserManager} from '../../utils/user-manager.ts'
 import {UserList} from './user-table/UserList.tsx'
@@ -24,28 +24,16 @@ export const UserTable: React.FC<Props> = ({
   }
 
   const [isColoredRow, setIsColoredRow] = useState(false)
-  const [sortType, setSortType] = useState<UserSortType | null>(null)
+  const [sortType, setSortType] = useState<UserSortType>(UserSortType.None)
   const [countryToSearch, setCountryToSearch] = useState<string>('')
 
   const handleColorRow = () => {
     setIsColoredRow(!isColoredRow)
   }
 
-  const _handleSort = (type: UserSortType) => {
-    const sort = type === sortType ? null : type
+  const handleSort = (type: UserSortType) => {
+    const sort = type === sortType ? UserSortType.None : type
     setSortType(sort)
-  }
-
-  const handleSortByCountry = () => {
-    _handleSort(UserSortType.Country)
-  }
-
-  const handleSortByFirstname = () => {
-    _handleSort(UserSortType.Firstname)
-  }
-
-  const handleSortByLastname = () => {
-    _handleSort(UserSortType.Lastname)
   }
 
   const handleCountryToSearchChange = (
@@ -54,17 +42,17 @@ export const UserTable: React.FC<Props> = ({
     setCountryToSearch(e.target.value)
   }
 
-  let processedUsers = [...users]
-  if (sortType) {
-    UserManager.sort(processedUsers, sortType)
-  }
+  const filteredUsers = useMemo(() => {
+    if (!countryToSearch) {
+      return users
+    }
 
-  if (countryToSearch) {
-    processedUsers = UserManager.filterByCountry(
-      processedUsers,
-      countryToSearch,
-    )
-  }
+    return UserManager.filterByCountry(users, countryToSearch)
+  }, [users, countryToSearch])
+
+  const sortedUsers = useMemo(() => {
+    return UserManager.sort(filteredUsers, sortType)
+  }, [filteredUsers, sortType])
 
   return (
     <div className="h-full w-3/4 flex flex-col justify-start">
@@ -76,7 +64,7 @@ export const UserTable: React.FC<Props> = ({
           {isColoredRow ? 'Uncolor' : 'Color'}
         </button>
         <button
-          onClick={handleSortByCountry}
+          onClick={() => handleSort(UserSortType.Country)}
           className="bg-secondary text-primary-900 p-4 font-black rounded-2xl cursor-pointer"
         >
           {sortType === UserSortType.Country ? 'Unsort' : 'Sort'}
@@ -97,12 +85,10 @@ export const UserTable: React.FC<Props> = ({
       </div>
 
       <UserList
-        users={processedUsers}
+        users={sortedUsers}
         isColoredRow={isColoredRow}
         handleRemoveUser={handleRemoveUser}
-        handleSortByCountry={handleSortByCountry}
-        handleSortByFirstname={handleSortByFirstname}
-        handleSortByLastname={handleSortByLastname}
+        handleSort={handleSort}
       />
     </div>
   )

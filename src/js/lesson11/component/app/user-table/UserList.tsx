@@ -3,37 +3,42 @@
  * @author      C. M. de Picciotto <d3p1@d3p1.dev> (https://d3p1.dev/)
  */
 import * as React from 'react'
-import type {User} from '../../../types'
+import {type User, UserSortType} from '../../../types'
 
 interface Props {
   users: User[]
   isColoredRow: boolean
   handleRemoveUser: (email: string) => void
-  handleSortByFirstname: () => void
-  handleSortByLastname: () => void
-  handleSortByCountry: () => void
+  handleSort: (sortType: UserSortType) => void
 }
 
 export const UserList: React.FC<Props> = ({
   users,
   isColoredRow,
   handleRemoveUser,
-  handleSortByFirstname,
-  handleSortByLastname,
-  handleSortByCountry,
+  handleSort,
 }) => {
   return (
     <table>
       <thead className="border-b-primary-700 border-b-2 border-b-solid">
         <tr className="grid grid-cols-5 place-items-center py-4 font-black">
           <th>Picture</th>
-          <th onClick={handleSortByFirstname} className="cursor-pointer">
+          <th
+            onClick={() => handleSort(UserSortType.Firstname)}
+            className="cursor-pointer"
+          >
             Firstname
           </th>
-          <th onClick={handleSortByLastname} className="cursor-pointer">
+          <th
+            onClick={() => handleSort(UserSortType.Lastname)}
+            className="cursor-pointer"
+          >
             Lastname
           </th>
-          <th onClick={handleSortByCountry} className="cursor-pointer">
+          <th
+            onClick={() => handleSort(UserSortType.Country)}
+            className="cursor-pointer"
+          >
             Country
           </th>
           <th>Actions</th>
