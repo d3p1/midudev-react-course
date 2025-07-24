@@ -1,3 +1,12 @@
+## [1.25.1](https://github.com/d3p1/midudev-react-course/compare/v1.25.0...v1.25.1) (2025-07-24)
+
+
+### Bug Fixes
+
+* improve filter and sort user features in lesson number 11 [[#1](https://github.com/d3p1/midudev-react-course/issues/1)] ([8a0a6a9](https://github.com/d3p1/midudev-react-course/commit/8a0a6a9c1b2440d83ab09e8a582866a0974fe166))
+* improve key used for users in lesson number 11 [[#1](https://github.com/d3p1/midudev-react-course/issues/1)] ([1e33748](https://github.com/d3p1/midudev-react-course/commit/1e337482937aeccc5084521e6b74e8986fc887e4))
+* use reference to restore original users in lesson number 11 [[#1](https://github.com/d3p1/midudev-react-course/issues/1)] ([7f499a0](https://github.com/d3p1/midudev-react-course/commit/7f499a03f4137a72eccd4a3797bab407d248fff2))
+
 # [1.25.0](https://github.com/d3p1/midudev-react-course/compare/v1.24.0...v1.25.0) (2025-07-23)
 
 
