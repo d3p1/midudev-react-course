@@ -1,3 +1,10 @@
+## [1.25.2](https://github.com/d3p1/midudev-react-course/compare/v1.25.1...v1.25.2) (2025-07-24)
+
+
+### Bug Fixes
+
+* adjust sort of users in lesson number 11 [[#1](https://github.com/d3p1/midudev-react-course/issues/1)] ([596c9e0](https://github.com/d3p1/midudev-react-course/commit/596c9e0a7be7ac6d87085f26935f14ab67711e69))
+
 ## [1.25.1](https://github.com/d3p1/midudev-react-course/compare/v1.25.0...v1.25.1) (2025-07-24)
 
 
