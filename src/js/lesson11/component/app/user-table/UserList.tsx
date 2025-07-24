@@ -3,12 +3,12 @@
  * @author      C. M. de Picciotto <d3p1@d3p1.dev> (https://d3p1.dev/)
  */
 import * as React from 'react'
-import type {User, UserId} from '../../../types'
+import type {User} from '../../../types'
 
 interface Props {
   users: User[]
   isColoredRow: boolean
-  handleRemoveUser: (id: UserId) => void
+  handleRemoveUser: (email: string) => void
   handleSortByFirstname: () => void
   handleSortByLastname: () => void
   handleSortByCountry: () => void
@@ -41,10 +41,6 @@ export const UserList: React.FC<Props> = ({
       </thead>
       <tbody className="">
         {users.map((user, index) => {
-          if (!user?.id?.value) {
-            return
-          }
-
           let rowColor = 'bg-transparent'
           if (isColoredRow) {
             rowColor = 'bg-primary-700'
@@ -55,7 +51,7 @@ export const UserList: React.FC<Props> = ({
 
           return (
             <tr
-              key={user?.id?.value}
+              key={user?.email}
               className={`grid grid-cols-5 place-items-center py-8 text-xs ${rowColor} text-primary-200 hover:bg-primary-500 hover:text-secondary transition-all duration-300`}
             >
               <td>
@@ -70,7 +66,7 @@ export const UserList: React.FC<Props> = ({
               <td>{user?.location?.country}</td>
               <td>
                 <button
-                  onClick={() => handleRemoveUser(user?.id?.value)}
+                  onClick={() => handleRemoveUser(user?.email)}
                   className="cursor-pointer bg-secondary text-primary-900 p-4 rounded-2xl font-black"
                 >
                   Delete

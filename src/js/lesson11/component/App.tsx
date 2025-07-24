@@ -3,7 +3,7 @@
  * @author      C. M. de Picciotto <d3p1@d3p1.dev> (https://d3p1.dev/)
  */
 import {useEffect, useRef, useState} from 'react'
-import type {User, UserId} from '../types'
+import type {User} from '../types'
 import {UserManager} from '../utils/user-manager.ts'
 import {UserTable} from './app/UserTable.tsx'
 
@@ -26,9 +26,9 @@ export default function App() {
       })
   }, [])
 
-  const handleRemoveUser = (id: UserId) => {
+  const handleRemoveUser = (email: string) => {
     if (users) {
-      setUsers(users.filter((user) => user.id.value !== id))
+      setUsers(users.filter((user) => user.email !== email))
     }
   }
 

@@ -5,7 +5,7 @@
 import {type User, type UserResult, UserSortType} from '../types'
 
 const USER_API_BASE_URL = 'https://randomuser.me/api/'
-const USER_API_PARAMS = 'results=100&inc=id,name,location,picture'
+const USER_API_PARAMS = 'results=100&inc=email,name,location,picture'
 const USER_API_ENDPOINT = `${USER_API_BASE_URL}?${USER_API_PARAMS}`
 
 export class UserManager {

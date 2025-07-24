@@ -4,13 +4,13 @@
  */
 import * as React from 'react'
 import {useState} from 'react'
-import {type User, type UserId, UserSortType} from '../../types'
+import {type User, UserSortType} from '../../types'
 import {UserManager} from '../../utils/user-manager.ts'
 import {UserList} from './user-table/UserList.tsx'
 
 interface Props {
   users: User[] | null
-  handleRemoveUser: (id: UserId) => void
+  handleRemoveUser: (email: string) => void
   handleRestart: () => void
 }
 
