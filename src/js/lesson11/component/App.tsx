@@ -10,21 +10,25 @@ import {UserTable} from './app/UserTable.tsx'
 export default function App() {
   const originalUsers = useRef<User[]>([])
   const [users, setUsers] = useState<User[]>([])
+  const [isLoading, setIsLoading] = useState(false)
   const [error, setError] = useState<string | null>(null)
+  const [currentPage, setCurrentPage] = useState(1)
 
   useEffect(() => {
-    const userManager = new UserManager()
+    setIsLoading(true)
+    setError(null)
 
-    userManager
-      .loadUsers()
-      .then(() => {
-        originalUsers.current = userManager.users
-        setUsers(userManager.users)
+    UserManager.loadUsers(currentPage)
+      .then((loadedUsers) => {
+        const newUsers = loadedUsers.concat(users)
+        originalUsers.current = newUsers
+        setUsers(newUsers)
       })
       .catch((e) => {
         setError(e.message)
       })
-  }, [])
+      .finally(() => setIsLoading(false))
+  }, [currentPage])
 
   const handleRemoveUser = (email: string) => {
     if (users) {
@@ -36,15 +40,26 @@ export default function App() {
     setUsers(originalUsers.current)
   }
 
+  const handleLoadMoreUsers = () => {
+    setCurrentPage(currentPage + 1)
+  }
+
+  if (users.length) {
+    return (
+      <UserTable
+        users={users}
+        handleLoadMoreUsers={handleLoadMoreUsers}
+        handleRemoveUser={handleRemoveUser}
+        handleRestart={handleRestart}
+      />
+    )
+  }
+
+  if (isLoading) {
+    return <p className="font-black">Loading...</p>
+  }
+
   if (error) {
     return <p className="text-accent-secondary text-sm italic">{error}</p>
   }
-
-  return (
-    <UserTable
-      users={users}
-      handleRemoveUser={handleRemoveUser}
-      handleRestart={handleRestart}
-    />
-  )
 }

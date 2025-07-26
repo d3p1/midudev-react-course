@@ -5,20 +5,10 @@
 import {type User, type UserResult, UserSortType} from '../types'
 
 const USER_API_BASE_URL = 'https://randomuser.me/api/'
-const USER_API_PARAMS = 'results=100&inc=email,name,location,picture'
+const USER_API_PARAMS = 'results=3&inc=email,name,location,picture&seed=d3p1'
 const USER_API_ENDPOINT = `${USER_API_BASE_URL}?${USER_API_PARAMS}`
 
 export class UserManager {
-  /**
-   * @type {User[]}
-   */
-  users: User[] = []
-
-  /**
-   * Constructor
-   */
-  constructor() {}
-
   /**
    * Filter users by country
    *
@@ -67,22 +57,23 @@ export class UserManager {
   /**
    * Load users
    *
+   * @param   {number} page
    * @returns {Promise<void>}
    */
-  async loadUsers(): Promise<void> {
-    if (!this.users.length) {
-      this.users = await this.#fetchUsers()
-    }
+  static async loadUsers(page: number): Promise<User[]> {
+    return await this.#fetchUsers(page)
   }
 
   /**
    * Fetch users
    *
+   * @param   {number} page
    * @returns {Promise<User[]>}
    * @throws  {Error}
    */
-  async #fetchUsers(): Promise<User[]> {
-    const result = await fetch(USER_API_ENDPOINT)
+  static async #fetchUsers(page: number): Promise<User[]> {
+    const endpoint = `${USER_API_ENDPOINT}&page=${page}`
+    const result = await fetch(endpoint)
 
     if (!result.ok) {
       throw new Error('There was an error fetching the user endpoint.')

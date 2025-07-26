@@ -12,12 +12,14 @@ interface Props {
   users: User[] | null
   handleRemoveUser: (email: string) => void
   handleRestart: () => void
+  handleLoadMoreUsers: () => void
 }
 
 export const UserTable: React.FC<Props> = ({
   users,
   handleRemoveUser,
   handleRestart,
+  handleLoadMoreUsers,
 }) => {
   if (!users) {
     return null
@@ -57,6 +59,13 @@ export const UserTable: React.FC<Props> = ({
   return (
     <div className="h-full w-3/4 flex flex-col justify-start">
       <div className="w-full flex flex-row justify-center items-center gap-4 mb-8">
+        <button
+          onClick={handleLoadMoreUsers}
+          className="bg-secondary text-primary-900 p-4 font-black rounded-2xl cursor-pointer"
+        >
+          More
+        </button>
+
         <button
           onClick={handleColorRow}
           className="bg-secondary text-primary-900 p-4 font-black rounded-2xl cursor-pointer"
