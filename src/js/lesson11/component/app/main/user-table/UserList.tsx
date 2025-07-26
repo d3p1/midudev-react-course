@@ -3,7 +3,7 @@
  * @author      C. M. de Picciotto <d3p1@d3p1.dev> (https://d3p1.dev/)
  */
 import * as React from 'react'
-import {type User, UserSortType} from '../../../types'
+import {type User, UserSortType} from '../../../../types'
 
 interface Props {
   users: User[]

@@ -4,8 +4,8 @@
  */
 import * as React from 'react'
 import {useMemo, useState} from 'react'
-import {type User, UserSortType} from '../../types'
-import {UserManager} from '../../utils/user-manager.ts'
+import {type User, UserSortType} from '../../../types'
+import {UserManager} from '../../../utils/user-manager.ts'
 import {UserList} from './user-table/UserList.tsx'
 
 interface Props {
