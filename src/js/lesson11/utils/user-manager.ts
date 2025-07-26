@@ -2,11 +2,17 @@
  * @description User manager
  * @author      C. M. de Picciotto <d3p1@d3p1.dev> (https://d3p1.dev/)
  */
-import {type User, type UserResult, UserSortType} from '../types'
+import {
+  type User,
+  type UserResult,
+  type UserQueryResult,
+  UserSortType,
+} from '../types'
 
 const USER_API_BASE_URL = 'https://randomuser.me/api/'
 const USER_API_PARAMS = 'results=3&inc=email,name,location,picture&seed=d3p1'
 const USER_API_ENDPOINT = `${USER_API_BASE_URL}?${USER_API_PARAMS}`
+const USER_API_PAGE_LIMIT = 3
 
 export class UserManager {
   /**
@@ -57,21 +63,32 @@ export class UserManager {
   /**
    * Load users
    *
-   * @param   {number} page
+   * @param   {{pageParam: unknown}} props
    * @returns {Promise<void>}
    */
-  static async loadUsers(page: number): Promise<User[]> {
-    return await this.#fetchUsers(page)
+  static async loadUsers({
+    pageParam = 1,
+  }: {
+    pageParam: unknown
+  }): Promise<UserQueryResult> {
+    const data = await UserManager.fetchUsers(Number(pageParam))
+    const nextCursor =
+      data.info.page > USER_API_PAGE_LIMIT ? undefined : data.info.page + 1
+
+    return {
+      users: data.results as User[],
+      nextCursor,
+    }
   }
 
   /**
    * Fetch users
    *
    * @param   {number} page
-   * @returns {Promise<User[]>}
+   * @returns {Promise<UserResult>}
    * @throws  {Error}
    */
-  static async #fetchUsers(page: number): Promise<User[]> {
+  static async fetchUsers(page: number): Promise<UserResult> {
     const endpoint = `${USER_API_ENDPOINT}&page=${page}`
     const result = await fetch(endpoint)
 
@@ -86,6 +103,6 @@ export class UserManager {
       )
     }
 
-    return data.results
+    return data
   }
 }

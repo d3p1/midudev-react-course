@@ -19,6 +19,14 @@ export interface User {
 export type UserResult = {
   results?: User[]
   error?: string
+  info: {
+    page: number
+  }
+}
+
+export type UserQueryResult = {
+  users: User[]
+  nextCursor?: number
 }
 
 export enum UserSortType {

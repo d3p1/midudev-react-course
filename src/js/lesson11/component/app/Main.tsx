@@ -2,53 +2,44 @@
  * @description Main
  * @author      C. M. de Picciotto <d3p1@d3p1.dev> (https://d3p1.dev/)
  */
-import {useEffect, useRef, useState} from 'react'
-import type {User} from '../../types'
+import {useInfiniteQuery} from '@tanstack/react-query'
+import type {UserQueryResult} from '../../types'
 import {UserManager} from '../../utils/user-manager.ts'
 import {UserTable} from './main/UserTable.tsx'
 
 export const Main = () => {
-  const originalUsers = useRef<User[]>([])
-  const [users, setUsers] = useState<User[]>([])
-  const [isLoading, setIsLoading] = useState(false)
-  const [error, setError] = useState<string | null>(null)
-  const [currentPage, setCurrentPage] = useState(1)
+  const {isLoading, error, refetch, data, fetchNextPage, hasNextPage} =
+    useInfiniteQuery<UserQueryResult>({
+      queryKey: ['users'],
+      queryFn: UserManager.loadUsers,
+      getNextPageParam: (page) => page.nextCursor,
+      initialPageParam: 1,
+    })
 
-  useEffect(() => {
-    setIsLoading(true)
-    setError(null)
-
-    UserManager.loadUsers(currentPage)
-      .then((loadedUsers) => {
-        const newUsers = loadedUsers.concat(users)
-        originalUsers.current = newUsers
-        setUsers(newUsers)
-      })
-      .catch((e) => {
-        setError(e.message)
-      })
-      .finally(() => setIsLoading(false))
-  }, [currentPage])
+  const users = data?.pages?.flatMap((page) => page.users)
 
   const handleRemoveUser = (email: string) => {
     if (users) {
-      setUsers(users.filter((user) => user.email !== email))
+      users.filter((user) => user.email !== email)
     }
   }
 
   const handleRestart = () => {
-    setUsers(originalUsers.current)
+    void refetch()
   }
 
   const handleLoadMoreUsers = () => {
-    setCurrentPage(currentPage + 1)
+    if (hasNextPage) {
+      void fetchNextPage()
+    }
   }
 
-  if (users.length) {
+  if (users?.length) {
     return (
       <UserTable
         users={users}
-        handleLoadMoreUsers={handleLoadMoreUsers}
+        hasNextPage={hasNextPage}
+        handleLoadUsers={handleLoadMoreUsers}
         handleRemoveUser={handleRemoveUser}
         handleRestart={handleRestart}
       />
@@ -60,7 +51,9 @@ export const Main = () => {
   }
 
   if (error) {
-    return <p className="text-accent-secondary text-sm italic">{error}</p>
+    return (
+      <p className="text-accent-secondary text-sm italic">{error.message}</p>
+    )
   }
 
   return <></>
