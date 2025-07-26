@@ -1,3 +1,15 @@
+# [1.26.0](https://github.com/d3p1/midudev-react-course/compare/v1.25.2...v1.26.0) (2025-07-26)
+
+
+### Bug Fixes
+
+* solve returning undefined component for lesson number 11 [[#1](https://github.com/d3p1/midudev-react-course/issues/1)] ([3607e59](https://github.com/d3p1/midudev-react-course/commit/3607e591713effe221331ca0b89d2c9d0fd569c6))
+
+
+### Features
+
+* add pagination to lesson number 11 [[#1](https://github.com/d3p1/midudev-react-course/issues/1)] ([3473f9b](https://github.com/d3p1/midudev-react-course/commit/3473f9bb6a57636d389c2c6c65542a8576c19ab1))
+
 ## [1.25.2](https://github.com/d3p1/midudev-react-course/compare/v1.25.1...v1.25.2) (2025-07-24)
 
 
