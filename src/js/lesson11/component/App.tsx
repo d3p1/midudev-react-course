@@ -62,4 +62,6 @@ export default function App() {
   if (error) {
     return <p className="text-accent-secondary text-sm italic">{error}</p>
   }
+
+  return <></>
 }
