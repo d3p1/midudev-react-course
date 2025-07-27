@@ -6,13 +6,14 @@ import * as React from 'react'
 import {useMemo, useState} from 'react'
 import {type User, UserSortType} from '../../../types'
 import {UserManager} from '../../../utils/user-manager.ts'
+import {Results} from './user-table/Results.tsx'
 import {UserList} from './user-table/UserList.tsx'
 
 interface Props {
   users: User[] | null
   handleRemoveUser: (email: string) => void
   handleRestart: () => void
-  handleLoadUsers: () => void
+  handleLoadMoreUsers: () => void
   hasNextPage: boolean
 }
 
@@ -20,7 +21,7 @@ export const UserTable: React.FC<Props> = ({
   users,
   handleRemoveUser,
   handleRestart,
-  handleLoadUsers,
+  handleLoadMoreUsers,
   hasNextPage,
 }) => {
   if (!users) {
@@ -62,7 +63,7 @@ export const UserTable: React.FC<Props> = ({
     <div className="h-full w-3/4 flex flex-col justify-start">
       <div className="w-full flex flex-row justify-center items-center gap-4 mb-8">
         <button
-          onClick={handleLoadUsers}
+          onClick={handleLoadMoreUsers}
           className={`text-primary-900 p-4 font-black rounded-2xl cursor-pointer ${
             !hasNextPage ? 'bg-primary-700' : 'bg-secondary'
           }`}
@@ -95,6 +96,7 @@ export const UserTable: React.FC<Props> = ({
           onChange={handleCountryToSearchChange}
           className="border-primary-700 border-2 border-solid p-3 placeholder:italic placeholder:text-xs"
         />
+        <Results />
       </div>
 
       <UserList

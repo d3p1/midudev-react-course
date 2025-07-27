@@ -12,7 +12,7 @@ import {
 const USER_API_BASE_URL = 'https://randomuser.me/api/'
 const USER_API_PARAMS = 'results=3&inc=email,name,location,picture&seed=d3p1'
 const USER_API_ENDPOINT = `${USER_API_BASE_URL}?${USER_API_PARAMS}`
-const USER_API_PAGE_LIMIT = 3
+const USER_API_MAX_PAGE = 3
 
 export class UserManager {
   /**
@@ -73,7 +73,7 @@ export class UserManager {
   }): Promise<UserQueryResult> {
     const data = await UserManager.fetchUsers(Number(pageParam))
     const nextCursor =
-      data.info.page > USER_API_PAGE_LIMIT ? undefined : data.info.page + 1
+      data.info.page >= USER_API_MAX_PAGE ? undefined : data.info.page + 1
 
     return {
       users: data.results as User[],

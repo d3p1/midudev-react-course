@@ -2,21 +2,12 @@
  * @description Main
  * @author      C. M. de Picciotto <d3p1@d3p1.dev> (https://d3p1.dev/)
  */
-import {useInfiniteQuery} from '@tanstack/react-query'
-import type {UserQueryResult} from '../../types'
-import {UserManager} from '../../utils/user-manager.ts'
+import {useUsers} from '../../hook/useUsers.ts'
 import {UserTable} from './main/UserTable.tsx'
 
 export const Main = () => {
-  const {isLoading, error, refetch, data, fetchNextPage, hasNextPage} =
-    useInfiniteQuery<UserQueryResult>({
-      queryKey: ['users'],
-      queryFn: UserManager.loadUsers,
-      getNextPageParam: (page) => page.nextCursor,
-      initialPageParam: 1,
-    })
-
-  const users = data?.pages?.flatMap((page) => page.users)
+  const {isLoading, error, refetch, users, fetchNextPage, hasNextPage} =
+    useUsers()
 
   const handleRemoveUser = (email: string) => {
     if (users) {
@@ -39,7 +30,7 @@ export const Main = () => {
       <UserTable
         users={users}
         hasNextPage={hasNextPage}
-        handleLoadUsers={handleLoadMoreUsers}
+        handleLoadMoreUsers={handleLoadMoreUsers}
         handleRemoveUser={handleRemoveUser}
         handleRestart={handleRestart}
       />
