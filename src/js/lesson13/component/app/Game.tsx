@@ -10,6 +10,7 @@ import {Statics} from './game/Statics.tsx'
 export const Game = () => {
   const questions = useQuestionStore((state) => state.questions)
   const currentQuestion = useQuestionStore((state) => state.currentQuestion)
+  const restart = useQuestionStore((state) => state.restart)
 
   return (
     <>
@@ -20,7 +21,10 @@ export const Game = () => {
         </li>
       </ul>
       <Statics />
-      <button className="bg-secondary text-primary-900 font-black p-4 rounded-2xl cursor-pointer">
+      <button
+        onClick={restart}
+        className="bg-secondary text-primary-900 font-black p-4 rounded-2xl cursor-pointer"
+      >
         Restart
       </button>
     </>

@@ -10,6 +10,7 @@ interface State {
   questions: Question[]
   currentQuestion: number
   loadQuestions: () => Promise<void>
+  restart: () => void
 }
 
 export const useQuestionStore = create<State>((set) => ({
@@ -19,6 +20,12 @@ export const useQuestionStore = create<State>((set) => ({
     const questions = await QuestionManager.loadQuestions()
     set({
       questions,
+    })
+  },
+  restart: () => {
+    set({
+      questions: [],
+      currentQuestion: 0,
     })
   },
 }))
