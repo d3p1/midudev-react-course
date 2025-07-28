@@ -24,13 +24,9 @@ export class CommentManager {
   static async getComments(): Promise<Comment[]> {
     const result = await CommentManager.fetch('GET')
 
-    if (!result.ok) {
-      throw new Error('There was an error fetching comments.')
-    }
-
     const data = (await result.json()) as CommentResult
 
-    if (!data?.record?.comments?.length) {
+    if (!data?.record?.comments) {
       throw new Error('It was not possible to retrieve comments.')
     }
 
@@ -58,13 +54,18 @@ export class CommentManager {
       comments: [...currentComments, newComment],
     }
 
-    const result = await CommentManager.fetch('PUT', JSON.stringify(data))
-
-    if (!result.ok) {
-      throw new Error('There was an error updating comments.')
-    }
+    await CommentManager.fetch('PUT', JSON.stringify(data))
 
     return newComment
+  }
+
+  /**
+   * Reset comments
+   *
+   * @returns {Promise<void>}
+   */
+  static async resetComments(): Promise<void> {
+    await CommentManager.fetch('PUT', JSON.stringify({comments: []}))
   }
 
   /**
@@ -76,7 +77,7 @@ export class CommentManager {
    * @throws  {Error}
    */
   static async fetch(method: 'GET' | 'PUT', body?: string): Promise<Response> {
-    return await fetch(API_ENDPOINT, {
+    const response = await fetch(API_ENDPOINT, {
       method,
       headers: {
         'Content-Type': 'application/json',
@@ -84,5 +85,11 @@ export class CommentManager {
       },
       body,
     })
+
+    if (!response.ok) {
+      throw new Error('There was an error with the request.')
+    }
+
+    return response
   }
 }

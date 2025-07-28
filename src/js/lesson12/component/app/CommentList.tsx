@@ -25,7 +25,9 @@ export const CommentList = () => {
         {comments.map((comment) => (
           <li
             key={comment.id}
-            className="flex flex-col gap-4 justify-center items-center bg-primary-700 p-8 rounded-2xl w-full"
+            className={`flex flex-col gap-4 justify-center items-center bg-primary-700 p-8 rounded-2xl w-full ${
+              comment.isPending ? 'opacity-15' : ''
+            }`}
           >
             <h3 className="text-lg font-black">{comment.title}</h3>
             <p className="italic text-sm bg-primary-600 p-4 rounded-2xl">

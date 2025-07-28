@@ -6,6 +6,7 @@ export interface Comment {
   id: string
   title: string
   message: string
+  isPending?: boolean
 }
 
 export interface CommentResult {
