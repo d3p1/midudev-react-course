@@ -6,14 +6,15 @@ import {useUsers} from '../../hook/useUsers.ts'
 import {UserTable} from './main/UserTable.tsx'
 
 export const Main = () => {
-  const {isLoading, error, refetch, users, fetchNextPage, hasNextPage} =
-    useUsers()
-
-  const handleRemoveUser = (email: string) => {
-    if (users) {
-      users.filter((user) => user.email !== email)
-    }
-  }
+  const {
+    isLoading,
+    error,
+    refetch,
+    users,
+    fetchNextPage,
+    hasNextPage,
+    removeUserByEmail,
+  } = useUsers()
 
   const handleRestart = () => {
     void refetch()
@@ -31,7 +32,7 @@ export const Main = () => {
         users={users}
         hasNextPage={hasNextPage}
         handleLoadMoreUsers={handleLoadMoreUsers}
-        handleRemoveUser={handleRemoveUser}
+        handleRemoveUser={removeUserByEmail}
         handleRestart={handleRestart}
       />
     )
