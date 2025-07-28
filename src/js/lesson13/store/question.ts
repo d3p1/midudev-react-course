@@ -4,6 +4,7 @@
  */
 import {create} from 'zustand/react'
 import type {Question} from '../types'
+import {QuestionManager} from '../service/question-manager.ts'
 
 interface State {
   questions: Question[]
@@ -11,10 +12,13 @@ interface State {
   loadQuestions: () => Promise<void>
 }
 
-export const useQuestionStore = create<State>(() => ({
+export const useQuestionStore = create<State>((set) => ({
   questions: [],
   currentQuestion: 0,
   loadQuestions: async () => {
-    console.log('HELO')
+    const questions = await QuestionManager.loadQuestions()
+    set({
+      questions,
+    })
   },
 }))
