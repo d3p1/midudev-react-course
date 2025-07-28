@@ -19,15 +19,10 @@ export class CommentManager {
    * Get comments
    *
    * @returns {Promise<Comment[]>}
+   * @throws  {Error}
    */
   static async getComments(): Promise<Comment[]> {
-    const result = await fetch(API_ENDPOINT, {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json',
-        'X-Access-Key': API_KEY,
-      },
-    })
+    const result = await CommentManager.fetch('GET')
 
     if (!result.ok) {
       throw new Error('There was an error fetching comments.')
@@ -40,5 +35,54 @@ export class CommentManager {
     }
 
     return data.record.comments
+  }
+
+  /**
+   * Add comment
+   *
+   * @param   {{title: string, message: string}} comment
+   * @returns {Promise<Comment>}
+   */
+  static async addComment({
+    title,
+    message,
+  }: Omit<Comment, 'id'>): Promise<Comment> {
+    const id = crypto.randomUUID()
+    const newComment = {
+      title,
+      message,
+      id,
+    }
+    const currentComments = await CommentManager.getComments()
+    const data = {
+      comments: [...currentComments, newComment],
+    }
+
+    const result = await CommentManager.fetch('PUT', JSON.stringify(data))
+
+    if (!result.ok) {
+      throw new Error('There was an error updating comments.')
+    }
+
+    return newComment
+  }
+
+  /**
+   * Fetch
+   *
+   * @param   {string} method
+   * @param   {string} body
+   * @returns {Promise<Response>}
+   * @throws  {Error}
+   */
+  static async fetch(method: 'GET' | 'PUT', body?: string): Promise<Response> {
+    return await fetch(API_ENDPOINT, {
+      method,
+      headers: {
+        'Content-Type': 'application/json',
+        'X-Access-Key': API_KEY,
+      },
+      body,
+    })
   }
 }
