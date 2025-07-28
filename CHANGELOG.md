@@ -1,3 +1,17 @@
+# [1.27.0](https://github.com/d3p1/midudev-react-course/compare/v1.26.0...v1.27.0) (2025-07-28)
+
+
+### Features
+
+* add get comment feature to lesson number 12 [[#1](https://github.com/d3p1/midudev-react-course/issues/1)] ([cc26963](https://github.com/d3p1/midudev-react-course/commit/cc26963cf1db4572861ce557e7af7594180e7175))
+* add react query delete user by email mutation to lesson number 11 [[#1](https://github.com/d3p1/midudev-react-course/issues/1)] ([2cb09ad](https://github.com/d3p1/midudev-react-course/commit/2cb09ad5b4afba16977085d4c014d32b740c013f))
+* add react query devtools to lesson number 11 [[#1](https://github.com/d3p1/midudev-react-course/issues/1)] ([dabee96](https://github.com/d3p1/midudev-react-course/commit/dabee969c3d3e886c7cdb7e3f698b37c62202ada))
+* add tanstack query dependency [[#1](https://github.com/d3p1/midudev-react-course/issues/1)] ([333ec14](https://github.com/d3p1/midudev-react-course/commit/333ec14f199aad0fa5322297169662a2007affc5))
+* add tanstack query features to lesson number 11 [[#1](https://github.com/d3p1/midudev-react-course/issues/1)] ([57d93e0](https://github.com/d3p1/midudev-react-course/commit/57d93e0963bc07591d4aa47c0689aa0a892426dc))
+* include add comment feature to lesson number 12 [[#1](https://github.com/d3p1/midudev-react-course/issues/1)] ([eb598fa](https://github.com/d3p1/midudev-react-course/commit/eb598fa97d45fe276392e303c80510db336b4f2f))
+* init lesson number 12 [[#1](https://github.com/d3p1/midudev-react-course/issues/1)] ([a93b912](https://github.com/d3p1/midudev-react-course/commit/a93b9128100fb539b6d28ee4e5c15f9049dd090e))
+* use react query mutation to add comments for lesson number 12 [[#1](https://github.com/d3p1/midudev-react-course/issues/1)] ([a8929ef](https://github.com/d3p1/midudev-react-course/commit/a8929efe821221efb7fe3db153a7fa9fd4900984))
+
 # [1.26.0](https://github.com/d3p1/midudev-react-course/compare/v1.25.2...v1.26.0) (2025-07-26)
 
 
