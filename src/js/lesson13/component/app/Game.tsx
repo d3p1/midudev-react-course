@@ -9,14 +9,14 @@ import {Statics} from './game/Statics.tsx'
 
 export const Game = () => {
   const questions = useQuestionStore((state) => state.questions)
-  console.log(questions)
+  const currentQuestion = useQuestionStore((state) => state.currentQuestion)
 
   return (
     <>
       <Navigation />
       <ul>
         <li className="flex flex-col gap-8 bg-primary-800 rounded-2xl p-6">
-          <Question />
+          <Question info={questions[currentQuestion]} />
         </li>
       </ul>
       <Statics />
