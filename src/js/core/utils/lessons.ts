@@ -81,4 +81,10 @@ export const lessons: Lessons = [
     link: 'https://cursoreact.dev/12-comments-react-query',
     component: lazy(() => import('../../lesson12/component/App.tsx')),
   },
+  {
+    number: '13',
+    title: 'JavaScript Quiz',
+    link: 'https://cursoreact.dev/13-javascript-quiz-con-zustand',
+    component: lazy(() => import('../../lesson13/component/App.tsx')),
+  },
 ]
