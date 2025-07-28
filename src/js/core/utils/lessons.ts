@@ -75,4 +75,10 @@ export const lessons: Lessons = [
     link: 'https://cursoreact.dev/11-typescript-prueba-tecnica',
     component: lazy(() => import('../../lesson11/component/App.tsx')),
   },
+  {
+    number: '12',
+    title: 'Comment With React Query',
+    link: 'https://cursoreact.dev/12-comments-react-query',
+    component: lazy(() => import('../../lesson12/component/App.tsx')),
+  },
 ]
