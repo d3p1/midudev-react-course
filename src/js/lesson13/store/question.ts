@@ -10,10 +10,12 @@ interface State {
   questions: Question[]
   currentQuestion: number
   loadQuestions: () => Promise<void>
+  goNextQuestion: () => void
+  goPreviousQuestion: () => void
   restart: () => void
 }
 
-export const useQuestionStore = create<State>((set) => ({
+export const useQuestionStore = create<State>((set, get) => ({
   questions: [],
   currentQuestion: 0,
   loadQuestions: async () => {
@@ -21,6 +23,22 @@ export const useQuestionStore = create<State>((set) => ({
     set({
       questions,
     })
+  },
+  goNextQuestion: () => {
+    const {questions, currentQuestion} = get()
+    if (currentQuestion < questions.length - 1) {
+      set({
+        currentQuestion: currentQuestion + 1,
+      })
+    }
+  },
+  goPreviousQuestion: () => {
+    const {currentQuestion} = get()
+    if (currentQuestion > 0) {
+      set({
+        currentQuestion: currentQuestion - 1,
+      })
+    }
   },
   restart: () => {
     set({
