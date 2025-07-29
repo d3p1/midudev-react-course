@@ -9,6 +9,32 @@ const QUESTION_API_ENDPOINT =
 
 export class QuestionManager {
   /**
+   * Process answer styles
+   *
+   * @param   {number} answerIndex
+   * @param   {number} correctAnswer
+   * @param   {number} userSelectedAnswer
+   * @returns {string}
+   */
+  static processAnswerStyles(
+    answerIndex: number,
+    correctAnswer: number,
+    userSelectedAnswer?: number,
+  ): string {
+    if (userSelectedAnswer !== undefined) {
+      if (answerIndex === correctAnswer) {
+        return 'bg-accent-primary'
+      }
+
+      if (answerIndex !== correctAnswer && answerIndex === userSelectedAnswer) {
+        return 'bg-accent-secondary'
+      }
+    }
+
+    return 'bg-primary-700'
+  }
+
+  /**
    * Load questions
    *
    * @param   {number} limit

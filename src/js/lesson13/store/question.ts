@@ -10,6 +10,7 @@ interface State {
   questions: Question[]
   currentQuestion: number
   loadQuestions: () => Promise<void>
+  answer: (questionId: number, answerIndex: number) => void
   goNextQuestion: () => void
   goPreviousQuestion: () => void
   restart: () => void
@@ -22,6 +23,18 @@ export const useQuestionStore = create<State>((set, get) => ({
     const questions = await QuestionManager.loadQuestions()
     set({
       questions,
+    })
+  },
+  answer: (questionId, answerIndex) => {
+    const {questions} = get()
+    const newQuestions = structuredClone(questions)
+    const questionIndex = newQuestions.findIndex(
+      (question) => question.id === questionId,
+    )
+    newQuestions[questionIndex].userSelectedAnswer = answerIndex
+
+    set({
+      questions: newQuestions,
     })
   },
   goNextQuestion: () => {
