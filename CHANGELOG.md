@@ -1,3 +1,21 @@
+# [1.28.0](https://github.com/d3p1/midudev-react-course/compare/v1.27.0...v1.28.0) (2025-07-29)
+
+
+### Features
+
+* add answer feature to lesson number 13 [[#1](https://github.com/d3p1/midudev-react-course/issues/1)] ([f1e3f13](https://github.com/d3p1/midudev-react-course/commit/f1e3f1370e822f500fbf8642007077bc68b306c0))
+* add load question feature to lesson number 13 [[#1](https://github.com/d3p1/midudev-react-course/issues/1)] ([595bb7e](https://github.com/d3p1/midudev-react-course/commit/595bb7e456c30d9268385944942b3e3dec7d1e11))
+* add local storage persist feature to lesson number 13 [[#1](https://github.com/d3p1/midudev-react-course/issues/1)] ([59f0fc6](https://github.com/d3p1/midudev-react-course/commit/59f0fc647db12bd1990f8445a2e4a857636f7c80))
+* add navigation feature to lesson number 13 [[#1](https://github.com/d3p1/midudev-react-course/issues/1)] ([c9d4936](https://github.com/d3p1/midudev-react-course/commit/c9d49363dc7777e8548c541bde3b24cf75c9a581))
+* add question feature to lesson number 13 [[#1](https://github.com/d3p1/midudev-react-course/issues/1)] ([d4c5d33](https://github.com/d3p1/midudev-react-course/commit/d4c5d33dc71e3d3baaa9f1b6fdcc5f692ff49ae6))
+* add redux devtools feature to lesson number 13 [[#1](https://github.com/d3p1/midudev-react-course/issues/1)] ([ac6830e](https://github.com/d3p1/midudev-react-course/commit/ac6830ee64a2c96744374b343f8949ee4e441696))
+* add restart feature to lesson number 13 [[#1](https://github.com/d3p1/midudev-react-course/issues/1)] ([09ac780](https://github.com/d3p1/midudev-react-course/commit/09ac780420f45a59f93bf59661213e83d9209295))
+* add statics to lesson number 13 [[#1](https://github.com/d3p1/midudev-react-course/issues/1)] ([0a7a5ca](https://github.com/d3p1/midudev-react-course/commit/0a7a5ca033f9e898d72922fe3bc9a0a16d97971f))
+* init design for lesson number 13 [[#1](https://github.com/d3p1/midudev-react-course/issues/1)] ([b412b56](https://github.com/d3p1/midudev-react-course/commit/b412b56a2037b3e5cddb81a27714ee7d2dfbcb83))
+* init lesson number 13 [[#1](https://github.com/d3p1/midudev-react-course/issues/1)] ([e49d47e](https://github.com/d3p1/midudev-react-course/commit/e49d47ebb229be47e32ce4e4694301945933501c))
+* init question manager for lesson number 13 [[#1](https://github.com/d3p1/midudev-react-course/issues/1)] ([86c76dc](https://github.com/d3p1/midudev-react-course/commit/86c76dc234ac3afabe3cad7ba8a0108344f71def))
+* init store for lesson number 13 [[#1](https://github.com/d3p1/midudev-react-course/issues/1)] ([0c2d968](https://github.com/d3p1/midudev-react-course/commit/0c2d9682279a5963a6583750db4fbe86a06e9727))
+
 # [1.27.0](https://github.com/d3p1/midudev-react-course/compare/v1.26.0...v1.27.0) (2025-07-28)
 
 
