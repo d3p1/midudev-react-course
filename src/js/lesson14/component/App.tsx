@@ -6,6 +6,7 @@ import {useState, version} from 'react'
 import {preload} from 'react-dom'
 import {UserProvider} from '../context/user.tsx'
 import {ActionBar} from './app/ActionBar.tsx'
+import {ActionForm} from './app/ActionForm.tsx'
 import {FocusForm} from './app/FocusForm.tsx'
 import {ReactIcon} from './app/Icon/ReactIcon.tsx'
 import {Pokemon} from './app/Pokemon.tsx'
@@ -29,6 +30,7 @@ export default function App() {
   const [isFocusFormEnabled, setIsFocusFormEnabled] = useState(false)
   const [isPokemonEnabled, setIsPokemonEnabled] = useState(false)
   const [isSignInEnabled, setIsSignInEnabled] = useState(false)
+  const [isActionFormEnabled, setIsActionFormEnabled] = useState(false)
 
   return (
     <UserProvider>
@@ -52,6 +54,8 @@ export default function App() {
           </div>
         )}
 
+        {isActionFormEnabled && <ActionForm />}
+
         <ActionBar
           handleSeo={() => setIsSeoEnabled(!isSeoEnabled)}
           isSeoEnabled={isSeoEnabled}
@@ -63,6 +67,8 @@ export default function App() {
           isPokemonEnabled={isPokemonEnabled}
           handleSignIn={() => setIsSignInEnabled(!isSignInEnabled)}
           isSignInEnabled={isSignInEnabled}
+          handleActionForm={() => setIsActionFormEnabled(!isActionFormEnabled)}
+          isActionFormEnabled={isActionFormEnabled}
         />
       </div>
     </UserProvider>

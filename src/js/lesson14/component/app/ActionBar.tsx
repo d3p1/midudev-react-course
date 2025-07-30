@@ -15,6 +15,8 @@ export const ActionBar: React.FC<{
   isPokemonEnabled: boolean
   handleSignIn: () => void
   isSignInEnabled: boolean
+  handleActionForm: () => void
+  isActionFormEnabled: boolean
 }> = ({
   handleSeo,
   isSeoEnabled,
@@ -26,6 +28,8 @@ export const ActionBar: React.FC<{
   isPokemonEnabled,
   handleSignIn,
   isSignInEnabled,
+  handleActionForm,
+  isActionFormEnabled,
 }) => {
   return (
     <>
@@ -61,7 +65,14 @@ export const ActionBar: React.FC<{
         onClick={handleSignIn}
         className="bg-secondary text-primary-900 font-black p-4 rounded-2xl cursor-pointer"
       >
-        {isSignInEnabled ? 'Hide SignIn' : 'Show SignIn'}
+        {isSignInEnabled ? 'Hide Sign In' : 'Show Sign In'}
+      </button>
+
+      <button
+        onClick={handleActionForm}
+        className="bg-secondary text-primary-900 font-black p-4 rounded-2xl cursor-pointer"
+      >
+        {isActionFormEnabled ? 'Hide Action Form' : 'Show Action Form'}
       </button>
     </>
   )
