@@ -6,6 +6,7 @@ import react from '@vitejs/plugin-react-swc'
 export default defineConfig({
   root: 'src/',
   base: '/midudev-react-course/',
+  publicDir: '../public',
   server: {
     host: true,
   },
