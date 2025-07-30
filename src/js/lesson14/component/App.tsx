@@ -4,7 +4,9 @@
  */
 import {useState, version} from 'react'
 import {preload} from 'react-dom'
+import {FocusForm} from './app/FocusForm.tsx'
 import {ReactIcon} from './app/Icon/ReactIcon.tsx'
+import {Pokemon} from './app/Pokemon.tsx'
 import {Seo} from './app/Seo.tsx'
 
 export default function App() {
@@ -20,6 +22,8 @@ export default function App() {
 
   const [isSeoEnabled, setIsSeoEnabled] = useState(false)
   const [showReactIcon, setShowReactIcon] = useState(false)
+  const [showFocusForm, setShowFocusForm] = useState(false)
+  const [showPokemon, setShowPokemon] = useState(false)
 
   return (
     <div className="flex flex-col gap-8">
@@ -30,6 +34,10 @@ export default function App() {
       {isSeoEnabled && <Seo />}
 
       {showReactIcon && <ReactIcon />}
+
+      {showFocusForm && <FocusForm />}
+
+      {showPokemon && <Pokemon />}
 
       <button
         onClick={() => setIsSeoEnabled(!isSeoEnabled)}
@@ -43,6 +51,20 @@ export default function App() {
         className="bg-secondary text-primary-900 font-black p-4 rounded-2xl cursor-pointer"
       >
         {showReactIcon ? 'Hide Icon' : 'Show Icon'}
+      </button>
+
+      <button
+        onClick={() => setShowFocusForm(!showFocusForm)}
+        className="bg-secondary text-primary-900 font-black p-4 rounded-2xl cursor-pointer"
+      >
+        Show Focus Form
+      </button>
+
+      <button
+        onClick={() => setShowPokemon(!showPokemon)}
+        className="bg-secondary text-primary-900 font-black p-4 rounded-2xl cursor-pointer"
+      >
+        Show Pokemon
       </button>
     </div>
   )
