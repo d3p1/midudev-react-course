@@ -26,7 +26,7 @@ export default function App() {
   const [showPokemon, setShowPokemon] = useState(false)
 
   return (
-    <div className="flex flex-col gap-8">
+    <div className="flex flex-col gap-8 h-full w-1/3">
       <p className="italic text-xs text-center">
         This app uses the following React version: {version}
       </p>
@@ -57,14 +57,14 @@ export default function App() {
         onClick={() => setShowFocusForm(!showFocusForm)}
         className="bg-secondary text-primary-900 font-black p-4 rounded-2xl cursor-pointer"
       >
-        Show Focus Form
+        {showFocusForm ? 'Hide Focus Form' : 'Show Focus Form'}
       </button>
 
       <button
         onClick={() => setShowPokemon(!showPokemon)}
         className="bg-secondary text-primary-900 font-black p-4 rounded-2xl cursor-pointer"
       >
-        Show Pokemon
+        {showPokemon ? 'Hide Pokemon' : 'Show Pokemon'}
       </button>
     </div>
   )
