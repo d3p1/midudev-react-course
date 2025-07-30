@@ -7,7 +7,7 @@ export const ReactIcon = () => {
     <img
       src="https://react.dev/images/uwu.png"
       alt="React icon"
-      className="max-w-2xs"
+      className="max-w-2xs m-auto"
     />
   )
 }
