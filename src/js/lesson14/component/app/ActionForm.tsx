@@ -2,7 +2,7 @@
  * @description Action form
  * @author      C. M. de Picciotto <d3p1@d3p1.dev> (https://d3p1.dev/)
  */
-import {useActionState, useState} from 'react'
+import {useActionState, useOptimistic, useState} from 'react'
 import {useFormStatus} from 'react-dom'
 import {MessageManager} from '../../utils/message-manager.tsx'
 
@@ -21,7 +21,16 @@ const Button = () => {
 }
 
 export const ActionForm = () => {
-  const [messages, setMessages] = useState<string[]>([])
+  const [messages, setMessages] = useState<
+    {text: string; isSending: boolean}[]
+  >([])
+
+  const [optimisticMessages, setOptimisticMessages] = useOptimistic(
+    messages,
+    (state, newMessage: string) => {
+      return [...state, {text: newMessage, isSending: true}]
+    },
+  )
 
   const addMessage = async (
     _: {error: boolean; message?: string},
@@ -30,12 +39,17 @@ export const ActionForm = () => {
     const message = (formData.get('message') as string) ?? ''
     if (message !== '') {
       try {
+        setOptimisticMessages(message)
         await MessageManager.addMessage(message)
-        setMessages((prevMessages) => [...prevMessages, message])
+        setMessages((prevMessages) => [
+          ...prevMessages,
+          {text: message, isSending: false},
+        ])
         return {
           error: false,
         }
       } catch (e) {
+        setMessages(messages)
         console.error(e as string)
         return {
           error: true,
@@ -57,8 +71,17 @@ export const ActionForm = () => {
   return (
     <div className="flex flex-col justify-center items-center gap-6">
       <ul className="flex flex-col justify-center items-center gap-4">
-        {messages.map((message, index) => {
-          return <li key={index}>{message}</li>
+        {optimisticMessages.map((message, index) => {
+          return (
+            <li key={index} className="text-sm">
+              {message.text}{' '}
+              {message.isSending ? (
+                <span className="italic">(Sending...)</span>
+              ) : (
+                ''
+              )}
+            </li>
+          )
         })}
       </ul>
 
