@@ -1,3 +1,19 @@
+# [1.29.0](https://github.com/d3p1/midudev-react-course/compare/v1.28.0...v1.29.0) (2025-07-31)
+
+
+### Features
+
+* add action state and form status to lesson number 14 [[#1](https://github.com/d3p1/midudev-react-course/issues/1)] ([551d4bc](https://github.com/d3p1/midudev-react-course/commit/551d4bc66dfc2d046a8f75ea10d921f3ceb2410c))
+* add forward ref improvement to lesson number 14 [[#1](https://github.com/d3p1/midudev-react-course/issues/1)] ([3df844c](https://github.com/d3p1/midudev-react-course/commit/3df844c05bf365d7aed597ce331ae06cdd2f5ef1))
+* add link feature to lesson number 14 [[#1](https://github.com/d3p1/midudev-react-course/issues/1)] ([9d63c8f](https://github.com/d3p1/midudev-react-course/commit/9d63c8fcb02bd345d52c068ca9bfbd56acc09c40))
+* add message manager to lesson number 14 [[#1](https://github.com/d3p1/midudev-react-course/issues/1)] ([0e48d02](https://github.com/d3p1/midudev-react-course/commit/0e48d02c71564db76a9051dd4541eee4afcfce5c))
+* add optimistic messages to lesson number 14 [[#1](https://github.com/d3p1/midudev-react-course/issues/1)] ([76156eb](https://github.com/d3p1/midudev-react-course/commit/76156eb1167be18d3970d38693217a82df078738))
+* add pokemon finder with use in lesson number 14 [[#1](https://github.com/d3p1/midudev-react-course/issues/1)] ([0d9a007](https://github.com/d3p1/midudev-react-course/commit/0d9a007f8ae9e61e892a66999aeadb242e14998a))
+* add transition to lesson number 14 [[#1](https://github.com/d3p1/midudev-react-course/issues/1)] ([9c4e190](https://github.com/d3p1/midudev-react-course/commit/9c4e190e4e462910f3374bac069b27a3e5a01f3d))
+* add user context with use in lesson number 14 [[#1](https://github.com/d3p1/midudev-react-course/issues/1)] ([2e05d03](https://github.com/d3p1/midudev-react-course/commit/2e05d0310af0a6dcc5b057ec3d6d78f16d31ba66))
+* init action form in lesson number 14 [[#1](https://github.com/d3p1/midudev-react-course/issues/1)] ([8f7b02e](https://github.com/d3p1/midudev-react-course/commit/8f7b02ef58167e6928df3cc2bcdb3c6d47bdd0d2))
+* init lesson number 14 [[#1](https://github.com/d3p1/midudev-react-course/issues/1)] ([0125ec7](https://github.com/d3p1/midudev-react-course/commit/0125ec7e6dc3499149a1428eff9259e7144b7492))
+
 # [1.28.0](https://github.com/d3p1/midudev-react-course/compare/v1.27.0...v1.28.0) (2025-07-29)
 
 
