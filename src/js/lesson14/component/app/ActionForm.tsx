@@ -3,17 +3,13 @@
  * @author      C. M. de Picciotto <d3p1@d3p1.dev> (https://d3p1.dev/)
  */
 import * as React from 'react'
-import {useState} from 'react'
+import {useState, useTransition} from 'react'
 import {MessageManager} from '../../utils/message-manager.tsx'
 
 export const ActionForm = () => {
   const [messages, setMessages] = useState<string[]>([])
-  const [isPending, setIsPending] = useState(false)
-  const [error, setError] = useState(null)
-
-  if (isPending) {
-    return <div className="text-xs italic text-center">Loading...</div>
-  }
+  const [isPending, startTransition] = useTransition()
+  const [error, setError] = useState<string | null>(null)
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
@@ -23,17 +19,17 @@ export const ActionForm = () => {
     const message = (data.get('message') as string) ?? ''
 
     if (message !== '') {
-      setIsPending(true)
-
-      MessageManager.addMessage(message)
-        .then(() => {
+      setError(null)
+      startTransition(async () => {
+        try {
+          await MessageManager.addMessage(message)
           setMessages((prevMessages) => [...prevMessages, message])
-        })
-        .catch((e) => {
-          console.error(e)
-          setError(e)
-        })
-        .finally(() => setIsPending(false))
+          form.reset()
+        } catch (e) {
+          console.error(e as string)
+          setError(e as string)
+        }
+      })
     }
   }
 
@@ -59,13 +55,15 @@ export const ActionForm = () => {
           type="text"
           name="message"
           placeholder="A message"
+          disabled={isPending}
           className="p-4 border-primary-300 border-4 border-solid"
         />
         <button
           type="submit"
+          disabled={isPending}
           className="bg-secondary text-primary-900 font-black p-4 rounded-2xl cursor-pointer"
         >
-          Submit
+          {isPending ? 'Loading...' : 'Submit'}
         </button>
       </form>
     </div>
